@@ -1,0 +1,1666 @@
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>이재학 - AI Engineer</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+		
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		
+		:root {
+			--primary: #6366f1;
+			--secondary: #64748b;
+			--accent: #f59e0b;
+			--success: #10b981;
+			--error: #ef4444;
+			--warning: #f59e0b;
+			--bg: #ffffff;
+			--bg-soft: #f8fafc;
+			--bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			--text: #1e293b;
+			--text-light: #64748b;
+			--text-muted: #94a3b8;
+			--border: #e2e8f0;
+			--border-light: #f1f5f9;
+			--shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+			--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+			--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+			--shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+		}
+		
+		body {
+			font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+			line-height: 1.6;
+			color: var(--text);
+			background: var(--bg);
+			overflow-x: hidden;
+		}
+		
+		.container {
+			max-width: 1400px;
+			margin: 0 auto;
+			padding: 0;
+			background: white;
+		}
+		
+		/* Navigation */
+		.nav {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			background: rgba(255, 255, 255, 0.95);
+			backdrop-filter: blur(20px);
+			border-bottom: 1px solid var(--border);
+			z-index: 1000;
+			padding: 1rem 0;
+		}
+		
+		.nav-content {
+			max-width: 1400px;
+			margin: 0 auto;
+			padding: 0 2rem;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		
+		.nav-logo {
+			font-size: 1.5rem;
+			font-weight: 700;
+			color: var(--primary);
+		}
+		
+		.nav-menu {
+			display: flex;
+			gap: 2rem;
+		}
+		
+		.nav-link {
+			text-decoration: none;
+			color: var(--text-light);
+			font-weight: 500;
+			padding: 0.5rem 1rem;
+			border-radius: 8px;
+			transition: all 0.2s ease;
+		}
+		
+		.nav-link:hover {
+			color: var(--primary);
+			background: var(--bg-soft);
+		}
+		
+		/* Hero Section */
+		.hero {
+			min-height: 100vh;
+			background: var(--bg-gradient);
+			display: flex;
+			align-items: center;
+			position: relative;
+			overflow: hidden;
+			padding-top: 80px;
+		}
+		
+		.hero::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="3" fill="rgba(255,255,255,0.08)"/><circle cx="40" cy="80" r="2" fill="rgba(255,255,255,0.12)"/></svg>');
+			animation: float 20s infinite ease-in-out;
+		}
+		
+		@keyframes float {
+			0%, 100% {
+				transform: translateY(0px) rotate(0deg);
+			}
+			50% {
+				transform: translateY(-20px) rotate(180deg);
+			}
+		}
+		
+		.hero-content {
+			display: grid;
+			grid-template-columns: 1fr 400px;
+			gap: 4rem;
+			align-items: center;
+			padding: 0 2rem;
+			max-width: 1400px;
+			margin: 0 auto;
+			width: 100%;
+			position: relative;
+			z-index: 2;
+		}
+		
+		.hero-text {
+			color: white;
+		}
+		
+		.hero-badge {
+			display: inline-block;
+			background: rgba(255, 255, 255, 0.2);
+			color: white;
+			padding: 0.5rem 1rem;
+			border-radius: 20px;
+			font-size: 0.9rem;
+			font-weight: 500;
+			margin-bottom: 1rem;
+			backdrop-filter: blur(10px);
+			border: 1px solid rgba(255, 255, 255, 0.1);
+		}
+		
+		.hero-name {
+			font-size: 4.5rem;
+			font-weight: 700;
+			margin-bottom: 1rem;
+			background: linear-gradient(135deg, white, rgba(255, 255, 255, 0.8));
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+		}
+		
+		.hero-title {
+			font-size: 1.75rem;
+			margin-bottom: 2rem;
+			opacity: 0.9;
+			font-weight: 500;
+		}
+		
+		.hero-description {
+			font-size: 1.1rem;
+			line-height: 1.8;
+			margin-bottom: 3rem;
+			opacity: 0.85;
+			max-width: 600px;
+		}
+		
+		.hero-actions {
+			display: flex;
+			gap: 1rem;
+			flex-wrap: wrap;
+		}
+		
+		.btn {
+			padding: 1rem 2rem;
+			border-radius: 12px;
+			font-weight: 600;
+			text-decoration: none;
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			transition: all 0.3s ease;
+			border: none;
+			cursor: pointer;
+		}
+		
+		.btn-primary {
+			background: white;
+			color: var(--primary);
+			box-shadow: var(--shadow-lg);
+		}
+		
+		.btn-primary:hover {
+			transform: translateY(-2px);
+			box-shadow: var(--shadow-xl);
+		}
+		
+		.btn-outline {
+			background: transparent;
+			color: white;
+			border: 2px solid rgba(255, 255, 255, 0.3);
+			backdrop-filter: blur(10px);
+		}
+		
+		.btn-outline:hover {
+			background: rgba(255, 255, 255, 0.1);
+			border-color: rgba(255, 255, 255, 0.5);
+		}
+		
+		/* Hero Card */
+		.hero-card {
+			background: rgba(255, 255, 255, 0.1);
+			backdrop-filter: blur(20px);
+			border: 1px solid rgba(255, 255, 255, 0.2);
+			border-radius: 24px;
+			padding: 2.5rem;
+			color: white;
+		}
+		
+		.card-header {
+			text-align: center;
+			margin-bottom: 2rem;
+		}
+		
+		.card-avatar {
+			width: 100px;
+			height: 100px;
+			background: rgba(255, 255, 255, 0.2);
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 2.5rem;
+			margin: 0 auto 1rem;
+			border: 3px solid rgba(255, 255, 255, 0.3);
+		}
+		
+		.card-name {
+			font-size: 1.5rem;
+			font-weight: 600;
+			margin-bottom: 0.5rem;
+		}
+		
+		.card-role {
+			opacity: 0.8;
+			margin-bottom: 2rem;
+		}
+		
+		.card-stats {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 1rem;
+		}
+		
+		.stat-box {
+			background: rgba(255, 255, 255, 0.1);
+			padding: 1rem;
+			border-radius: 12px;
+			text-align: center;
+			border: 1px solid rgba(255, 255, 255, 0.1);
+		}
+		
+		.stat-number {
+			font-size: 1.5rem;
+			font-weight: 700;
+			display: block;
+			margin-bottom: 0.25rem;
+		}
+		
+		.stat-label {
+			font-size: 0.8rem;
+			opacity: 0.8;
+		}
+		
+		/* Main Content Grid */
+		.main-content {
+			padding: 4rem 2rem;
+		}
+		
+		.content-grid {
+			max-width: 1400px;
+			margin: 0 auto;
+			display: grid;
+			grid-template-columns: 350px 1fr;
+			gap: 4rem;
+		}
+		
+		/* Sidebar */
+		.sidebar {
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+		}
+		
+		.sidebar-section {
+			background: white;
+			border-radius: 16px;
+			padding: 2rem;
+			box-shadow: var(--shadow-md);
+			border: 1px solid var(--border);
+		}
+		
+		.sidebar-title {
+			font-size: 1.2rem;
+			font-weight: 600;
+			color: var(--primary);
+			margin-bottom: 1.5rem;
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+		}
+		
+		.contact-list {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+		}
+		
+		.contact-item {
+			display: flex;
+			align-items: center;
+			gap: 0.75rem;
+			padding: 0.75rem;
+			background: var(--bg-soft);
+			border-radius: 8px;
+			text-decoration: none;
+			color: var(--text);
+			transition: all 0.2s ease;
+		}
+		
+		.contact-item:hover {
+			background: var(--primary);
+			color: white;
+			transform: translateX(4px);
+		}
+		
+		.skill-category {
+			margin-bottom: 1.5rem;
+		}
+		
+		.skill-category:last-child {
+			margin-bottom: 0;
+		}
+		
+		.skill-category-title {
+			font-size: 1rem;
+			font-weight: 600;
+			color: var(--text);
+			margin-bottom: 0.75rem;
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+		}
+		
+		.skill-items {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.5rem;
+		}
+		
+		.skill-tag {
+			background: var(--bg-soft);
+			color: var(--text);
+			padding: 0.4rem 0.8rem;
+			border-radius: 20px;
+			font-size: 0.8rem;
+			border: 1px solid var(--border);
+			transition: all 0.2s ease;
+		}
+		
+		.skill-tag:hover {
+			background: var(--primary);
+			color: white;
+			border-color: var(--primary);
+		}
+		
+		/* Main Content Area */
+		.content-main {
+			display: flex;
+			flex-direction: column;
+			gap: 3rem;
+		}
+		
+		.section {
+			background: white;
+			border-radius: 16px;
+			padding: 2.5rem;
+			box-shadow: var(--shadow-md);
+			border: 1px solid var(--border);
+		}
+		
+		.section-header {
+			margin-bottom: 2rem;
+		}
+		
+		.section-title {
+			font-size: 2rem;
+			font-weight: 700;
+			color: var(--primary);
+			margin-bottom: 0.5rem;
+			display: flex;
+			align-items: center;
+			gap: 0.75rem;
+		}
+		
+		.section-subtitle {
+			color: var(--text-light);
+			font-size: 1.1rem;
+		}
+		
+		/* Project Cards */
+		.projects-grid {
+			display: grid;
+			gap: 2rem;
+		}
+		
+		.project-card {
+			background: var(--bg-soft);
+			border-radius: 16px;
+			overflow: hidden;
+			border: 1px solid var(--border);
+			transition: all 0.3s ease;
+		}
+		
+		.project-card:hover {
+			transform: translateY(-4px);
+			box-shadow: var(--shadow-xl);
+			border-color: var(--primary);
+		}
+		
+		.project-header {
+			background: white;
+			padding: 2rem;
+			border-bottom: 1px solid var(--border);
+			position: relative;
+		}
+		
+		.project-badge {
+			position: absolute;
+			top: 1rem;
+			right: 1rem;
+			background: var(--accent);
+			color: white;
+			padding: 0.4rem 0.8rem;
+			border-radius: 12px;
+			font-size: 0.8rem;
+			font-weight: 600;
+		}
+		
+		.project-title {
+			font-size: 1.5rem;
+			font-weight: 700;
+			color: var(--primary);
+			margin-bottom: 0.5rem;
+		}
+		
+		.project-subtitle {
+			color: var(--text-light);
+			margin-bottom: 1rem;
+		}
+		
+		.project-meta {
+			display: flex;
+			gap: 1.5rem;
+			color: var(--text-muted);
+			font-size: 0.9rem;
+		}
+		
+		.project-content {
+			padding: 2rem;
+		}
+		
+		.project-description {
+			color: var(--text-light);
+			line-height: 1.7;
+			margin-bottom: 2rem;
+		}
+		
+		.project-metrics {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+			gap: 1rem;
+			margin-bottom: 2rem;
+		}
+		
+		.metric-card {
+			background: white;
+			padding: 1rem;
+			border-radius: 12px;
+			text-align: center;
+			border: 1px solid var(--border);
+		}
+		
+		.metric-value {
+			font-size: 1.5rem;
+			font-weight: 700;
+			color: var(--primary);
+			display: block;
+		}
+		
+		.metric-label {
+			font-size: 0.8rem;
+			color: var(--text-light);
+			margin-top: 0.25rem;
+		}
+		
+		.tech-stack {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.5rem;
+		}
+		
+		.tech-item {
+			background: var(--primary);
+			color: white;
+			padding: 0.4rem 0.8rem;
+			border-radius: 15px;
+			font-size: 0.8rem;
+			font-weight: 500;
+		}
+		
+		/* Education Timeline */
+		.education-timeline {
+			position: relative;
+			padding-left: 2rem;
+		}
+		
+		.education-timeline::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			width: 2px;
+			background: var(--primary);
+		}
+		
+		.education-item {
+			position: relative;
+			margin-bottom: 2rem;
+			padding-left: 2rem;
+		}
+		
+		.education-item::before {
+			content: '';
+			position: absolute;
+			left: -1rem;
+			top: 0.5rem;
+			width: 12px;
+			height: 12px;
+			background: var(--primary);
+			border-radius: 50%;
+			border: 3px solid white;
+			box-shadow: 0 0 0 2px var(--primary);
+		}
+		
+		.education-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+			margin-bottom: 0.5rem;
+		}
+		
+		.education-title {
+			font-size: 1.1rem;
+			font-weight: 600;
+			color: var(--text);
+		}
+		
+		.education-school {
+			color: var(--primary);
+			font-weight: 500;
+		}
+		
+		.education-date {
+			background: var(--bg-soft);
+			color: var(--text-light);
+			padding: 0.3rem 0.8rem;
+			border-radius: 12px;
+			font-size: 0.8rem;
+		}
+		
+		/* Download Button */
+		.download-btn {
+			position: fixed;
+			bottom: 2rem;
+			right: 2rem;
+			background: var(--primary);
+			color: white;
+			border: none;
+			border-radius: 50px;
+			padding: 1rem 1.5rem;
+			font-weight: 600;
+			cursor: pointer;
+			box-shadow: var(--shadow-lg);
+			z-index: 1000;
+			transition: all 0.3s ease;
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+		}
+		
+		.download-btn:hover {
+			background: #4f46e5;
+			transform: translateY(-2px);
+			box-shadow: var(--shadow-xl);
+		}
+		
+		/* Responsive Design */
+		@media (max-width: 1200px) {
+			.content-grid {
+				grid-template-columns: 300px 1fr;
+				gap: 3rem;
+			}
+		}
+		
+		@media (max-width: 968px) {
+			.hero-content {
+				grid-template-columns: 1fr;
+				text-align: center;
+				gap: 2rem;
+			}
+			
+			.content-grid {
+				grid-template-columns: 1fr;
+				gap: 2rem;
+			}
+			
+			.sidebar {
+				order: 2;
+			}
+			
+			.content-main {
+				order: 1;
+			}
+			
+			.nav-menu {
+				display: none;
+			}
+			
+			.main-content {
+				padding: 2rem 1rem;
+			}
+		}
+		
+		@media (max-width: 640px) {
+			.hero-name {
+				font-size: 3rem;
+			}
+			
+			.hero-content {
+				padding: 0 1rem;
+			}
+			
+			.project-metrics {
+				grid-template-columns: repeat(2, 1fr);
+			}
+			
+			.hero-actions {
+				flex-direction: column;
+				align-items: center;
+			}
+			
+			.btn {
+				width: 100%;
+				justify-content: center;
+				max-width: 300px;
+			}
+		}
+		
+		/* Print Styles */
+		@media print {
+			.nav,
+			.download-btn {
+				display: none;
+			}
+			
+			.hero {
+				min-height: auto;
+				padding: 2rem 0;
+				background: var(--primary) !important;
+				-webkit-print-color-adjust: exact;
+			}
+			
+			.content-grid {
+				grid-template-columns: 1fr;
+				gap: 1rem;
+			}
+			
+			.section {
+				page-break-inside: avoid;
+				margin-bottom: 1rem;
+			}
+			
+			body {
+				font-size: 12px;
+			}
+		}
+	</style>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="nav">
+	<div class="nav-content">
+		<div class="nav-logo">이재학</div>
+		<div class="nav-menu">
+			<a href="#projects" class="nav-link">프로젝트</a>
+			<a href="#skills" class="nav-link">기술</a>
+			<a href="#education" class="nav-link">교육</a>
+			<a href="#contact" class="nav-link">연락처</a>
+		</div>
+	</div>
+</nav>
+
+<!-- Download Button -->
+<button class="download-btn" onclick="window.print()">
+	📄 <span>PDF 다운로드</span>
+</button>
+
+<div class="container">
+	<!-- Hero Section -->
+	<section class="hero">
+		<div class="hero-content">
+			<div class="hero-text">
+				<span class="hero-badge">🚀 Ready to Innovate</span>
+				<h1 class="hero-name">이재학</h1>
+				<p class="hero-title">LLM Engineer & Full-Stack AI Developer</p>
+				
+				<p class="hero-description">
+					다변량 절단정규분포 기법으로 실데이터 100개에서 5만개 합성데이터를 생성하고, LoRA 파인튜닝된 LLaMA 3.2 3B 모델로 92% 정확도를 달성했습니다.
+					LangGraph Multi-Agent 워크플로우, VectorDB, React SPA, Spring Boot 마이크로서비스를 통합한 3-tier 아키텍처로
+					RunPod GPU 클러스터에 안정적인 AI 서비스를 배포한 경험을 보유하고 있습니다.
+				</p>
+				
+				<div class="hero-actions">
+					<a href="#contact" class="btn btn-primary">
+						📧 연락하기
+					</a>
+					<a href="https://github.com/jaehak0" class="btn btn-outline">
+						💻 GitHub 보기
+					</a>
+				</div>
+			</div>
+			
+			<div class="hero-card">
+				<div class="card-header">
+					<div class="card-avatar">🤖</div>
+					<h3 class="card-name">이재학</h3>
+					<p class="card-role">AI Engineer</p>
+				</div>
+				
+				<div class="card-stats">
+					<div class="stat-box">
+						<span class="stat-number">92%</span>
+						<span class="stat-label">AI 정확도</span>
+					</div>
+					<div class="stat-box">
+						<span class="stat-number">5만개</span>
+						<span class="stat-label">합성데이터</span>
+					</div>
+					<div class="stat-box">
+						<span class="stat-number">3개</span>
+						<span class="stat-label">주요 프로젝트</span>
+					</div>
+					<div class="stat-box">
+						<span class="stat-number">7주</span>
+						<span class="stat-label">최단 개발</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<!-- Main Content -->
+	<div class="main-content">
+		<div class="content-grid">
+			<!-- Sidebar -->
+			<aside class="sidebar">
+				<!-- Contact Info -->
+				<div class="sidebar-section" id="contact">
+					<h3 class="sidebar-title">
+						📞 연락처
+					</h3>
+					<div class="contact-list">
+						<a href="mailto:jack1087902@gmail.com" class="contact-item">
+							📧 jack1087902@gmail.com
+						</a>
+						<a href="https://github.com/jaehak0" class="contact-item">
+							💻 GitHub
+						</a>
+						<a href="https://curse-swordtail-eb6.notion.site/91a958c8e09441b2b5297a672b81d0db"
+						   class="contact-item">
+							📝 개발 학습 노트
+						</a>
+					</div>
+				</div>
+				
+				<!-- Skills Summary -->
+				<div class="sidebar-section" id="skills">
+					<h3 class="sidebar-title">
+						🛠️ 핵심 기술
+					</h3>
+					
+					<div class="skill-category">
+						<h4 class="skill-category-title">
+							🤖 AI/ML
+						</h4>
+						<div class="skill-items">
+							<span class="skill-tag">LLaMA 3.2</span>
+							<span class="skill-tag">LangGraph</span>
+							<span class="skill-tag">LoRA</span>
+							<span class="skill-tag">WandB</span>
+							<span class="skill-tag">RunPod</span>
+						</div>
+					</div>
+					
+					<div class="skill-category">
+						<h4 class="skill-category-title">
+							⚡ Backend
+						</h4>
+						<div class="skill-items">
+							<span class="skill-tag">FastAPI</span>
+							<span class="skill-tag">Spring Boot</span>
+							<span class="skill-tag">MySQL</span>
+							<span class="skill-tag">ChromaDB</span>
+						</div>
+					</div>
+					
+					<div class="skill-category">
+						<h4 class="skill-category-title">
+							💻 Frontend
+						</h4>
+						<div class="skill-items">
+							<span class="skill-tag">React</span>
+							<span class="skill-tag">TypeScript</span>
+							<span class="skill-tag">Tailwind</span>
+							<span class="skill-tag">Vite</span>
+						</div>
+					</div>
+					
+					<div class="skill-category">
+						<h4 class="skill-category-title">
+							📊 Data
+						</h4>
+						<div class="skill-items">
+							<span class="skill-tag">Python</span>
+							<span class="skill-tag">NumPy</span>
+							<span class="skill-tag">Pandas</span>
+							<span class="skill-tag">t-SNE</span>
+						</div>
+					</div>
+				</div>
+			</aside>
+			
+			<!-- Main Content -->
+			<main class="content-main">
+				<!-- Projects Section -->
+				<section class="section" id="projects">
+					<div class="section-header">
+						<h2 class="section-title">
+							🏆 주요 프로젝트
+						</h2>
+						<p class="section-subtitle">
+							AI 기술을 활용한 실제 서비스 개발 경험을 소개합니다.
+						</p>
+					</div>
+					
+					<div class="projects-grid">
+						<div class="project-card">
+							<div class="project-header">
+								<span class="project-badge">Lead AI Developer</span>
+								<h3 class="project-title">SheetAI</h3>
+								<p class="project-subtitle">LLM 기반 기업 신용평가 및 자동 보고서 생성 시스템</p>
+								<div class="project-meta">
+									<span>📅 2025.05 - 2025.07 (7주 집중 개발)</span>
+									<span>👥 6명 팀</span>
+									<span>⭐ 프로덕션 완료 (배포 준비 중)</span>
+								</div>
+							</div>
+							<div class="project-content">
+								<p class="project-description">
+									7주라는 짧은 기간 동안 기업 신용평가 데이터 부족 문제를 해결하고, LLM 파인튜닝과 Multi-Agent 시스템을 활용하여 완전히 자동화된
+									신용평가 및 보고서 생성 서비스를 개발했습니다. 팀 내 AI/ML 분야 핵심 담당자로서 기술적 리더십을 발휘하며 프로젝트 성공을 이끌었습니다.
+								</p>
+								
+								<div
+										style="background: var(--bg-soft); padding: 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.9rem; line-height: 1.6;">
+									<strong>🔬 데이터 엔지니어링:</strong><br>
+									• 다변량 절단정규분포 기법으로 실데이터 100개에서 5만개 고품질 합성데이터 생성<br>
+									• OpenDART API 실시간 데이터 처리: 25개 핵심 재무지표로 표준화 스키마 설계<br>
+									• 정성적 데이터를 실제 기업데이터에 추가하는 시스템 구축
+								</div>
+								
+								<div
+										style="background: var(--bg-soft); padding: 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.9rem; line-height: 1.6;">
+									
+									
+									<strong>🤖 AI 모델 개발:</strong><br>
+									• LLaMA 3.1 8B, 3.2 3B, Gemma, Phi 4개 모델 비교 실험<br>
+									• LoRA 기법으로 LLaMA 3.2 3B 모델 파인튜닝 (Learning Rate 2e-4, LoRA rank 64)<br>
+									• WandB 실험 추적으로 100+ 실험 기록 및 성능 비교<br>
+									• LangGraph Multi-Agent 시스템: 데이터 수집, 신용평가, 보고서 생성, 검증 Agent
+								</div>
+								
+								<div
+										style="background: var(--bg-soft); padding: 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.9rem; line-height: 1.6;">
+									<strong>⚙️ 시스템 아키텍처:</strong><br>
+									• Frontend 프로젝트 설정: Vite + React + TypeScript, Jotai + TanStack Query<br>
+									• 3-tier 아키텍처: FastAPI AI 서버 + Spring Boot + React SPA<br>
+									• Database: MySQL 클라우드 + H2 Failover 시스템<br>
+									• PDF 보고서 생성: jsPDF + html2Canvas로 A4 최적화<br>
+									• RunPod GPU 클러스터에 파인튜닝된 LLM 배포
+								</div>
+								
+								<div class="project-metrics">
+									<div class="metric-card">
+										<span class="metric-value">92%</span>
+										<span class="metric-label">신용평가 정확도</span>
+									</div>
+									<div class="metric-card">
+										<span class="metric-value">5만개</span>
+										<span class="metric-label">합성데이터 생성</span>
+									</div>
+									<div class="metric-card">
+										<span class="metric-value">99%</span>
+										<span class="metric-label">분석시간 단축</span>
+									</div>
+									<div class="metric-card">
+										<span class="metric-value">3분</span>
+										<span class="metric-label">vs 기존 3시간</span>
+									</div>
+								</div>
+								
+								<div class="tech-stack">
+									<span class="tech-item">LLaMA 3.2 3B</span>
+									<span class="tech-item">LoRA Fine-tuning</span>
+									<span class="tech-item">LangGraph Multi-Agent</span>
+									<span class="tech-item">FastAPI</span>
+									<span class="tech-item">React SPA</span>
+									<span class="tech-item">Spring Boot</span>
+									<span class="tech-item">ChromaDB</span>
+									<span class="tech-item">RunPod GPU</span>
+									<span class="tech-item">MySQL</span>
+									<span class="tech-item">H2</span>
+									<span class="tech-item">jsPDF</span>
+								</div>
+							</div>
+						</div>
+						
+						<div class="project-card">
+							<div class="project-header">
+								<span class="project-badge">팀장</span>
+								<h3 class="project-title">Nutrimate</h3>
+								<p class="project-subtitle">건강관리 보조 서비스</p>
+								<div class="project-meta">
+									<span>📅 2024.01 - 2024.03 (AI 웹서비스 자바풀스택 과정)</span>
+									<span>👥 5명 팀</span>
+									<span>⭐ 팀장, Backend/Frontend/DB/Jira/Git 총괄</span>
+								</div>
+							</div>
+							<div class="project-content">
+								<p class="project-description">
+									사용자의 일일 식단을 기록하고 칼로리, 탄수화물, 단백질, 지방 등 영양소를 분석하여 건강관리를 도와주는 종합 서비스입니다.
+									팀장으로서 프로젝트 관리 및 의사결정, Backend 총괄, Frontend 총괄, DB 관리, Jira 관리, Git 총괄을 모두 담당했습니다.
+								</p>
+								
+								<div
+										style="background: var(--bg-soft); padding: 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.9rem; line-height: 1.6;">
+									<strong>👥 팀 리더십 (팀장):</strong><br>
+									• 기획 단계 의견 조율: 팀원들의 서로 다른 이해도를 통일하기 위해 화면설계, 기능상세서 작성<br>
+									• 품질 관리: 팀원들의 버그 수정 요청 조율 및 우선순위 결정<br>
+									• Jira 관리: 이슈 트래킹 및 작업 할당을 통한 프로젝트 진행 관리
+								</div>
+								
+								<div
+										style="background: var(--bg-soft); padding: 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.9rem; line-height: 1.6;">
+									<strong>💻 Backend 개발 총괄:</strong><br>
+									• Spring Boot + Gradle 환경에서 log4jdbc 로깅 시스템 구축<br>
+									• Jakarta 버전, JDBC 버전 호환성 문제 해결을 위한 라이브러리 의존성 관리<br>
+									• OAuth 인증 시스템: Google, Facebook OAuth 구현 (팀원 담당이었으나 버그 수정까지 전담)<br>
+									• 280줄 규모의 복잡한 SQL 쿼리 작성: 사용자 식단 기록의 칼로리, 영양소 데이터 종합 분석
+								</div>
+								
+								<div
+										style="background: var(--bg-soft); padding: 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.9rem; line-height: 1.6;">
+									<strong>🎨 Frontend 개발 총괄:</strong><br>
+									• 무한 대댓글 시스템: 재귀함수를 활용한 무한 depth 댓글 구조 구현<br>
+									• 애니메이션 메뉴 Drawer: 부드러운 애니메이션이 포함된 네비게이션 구현<br>
+									• 커스텀 캘린더: 라이브러리 기반 캘린더를 프로젝트 요구사항에 맞게 커스터마이징
+								</div>
+								
+								<div
+										style="background: var(--bg-soft); padding: 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.9rem; line-height: 1.6;">
+									<strong>🔧 전체 프로젝트 관리:</strong><br>
+									• 버전 관리 및 협업: 코드 충돌 해결, 라이브러리 의존성 관리<br>
+									• Merge 관리: 모든 PR의 merge를 담당하며 충돌 해결 전문성 향상<br>
+									• 공용 컴포넌트 수정으로 인한 충돌을 별도 파일 분리로 해결
+								</div>
+								
+								<div class="project-metrics">
+									<div class="metric-card">
+										<span class="metric-value">280줄</span>
+										<span class="metric-label">복합 SQL 쿼리</span>
+									</div>
+									<div class="metric-card">
+										<span class="metric-value">무한 대댓글</span>
+										<span class="metric-label">재귀 시스템</span>
+									</div>
+									<div class="metric-card">
+										<span class="metric-value">OAuth</span>
+										<span class="metric-label">Google, Facebook</span>
+									</div>
+									<div class="metric-card">
+										<span class="metric-value">5명 팀</span>
+										<span class="metric-label">리딩 성공</span>
+									</div>
+								</div>
+								
+								<div class="tech-stack">
+									<span class="tech-item">Spring Boot</span>
+									<span class="tech-item">React</span>
+									<span class="tech-item">Oracle DB</span>
+									<span class="tech-item">OAuth (Google, Facebook)</span>
+									<span class="tech-item">Material-UI</span>
+									<span class="tech-item">Styled-Components</span>
+									<span class="tech-item">Chart.js</span>
+									<span class="tech-item">Spring Security</span>
+									<span class="tech-item">MyBatis</span>
+									<span class="tech-item">log4jdbc</span>
+									<span class="tech-item">JWT</span>
+									<span class="tech-item">Recoil</span>
+									<span class="tech-item">Vite</span>
+									<span class="tech-item">Jira</span>
+									<span class="tech-item">Git</span>
+								</div>
+							</div>
+						</div>
+						
+						<div class="project-card">
+							<div class="project-header">
+								<span class="project-badge">Frontend & AI Integration</span>
+								<h3 class="project-title">여권의 정석</h3>
+								<p class="project-subtitle">CV 기반 여권사진 적합성 분석 서비스</p>
+								<div class="project-meta">
+									<span>📅 2025.03 (1주 집중 개발)</span>
+									<span>👥 6명 팀</span>
+									<span>⭐ Frontend 100% + 배경제거 AI 통합 100%</span>
+								</div>
+							</div>
+							<div class="project-content">
+								<p class="project-description">
+									여권사진 규정 준수를 위한 AI 기반 자동 분석 서비스입니다. 1주라는 짧은 기간 동안 팀원이 개발한 얼굴 분석 AI 모델을 사용자가 쉽게 이용할
+									수 있는 웹 인터페이스로 구현하고, 6개 배경제거 모델을 직접 비교 실험하여 2개 최적 모델을 선정 및 통합한 종합 여권사진 서비스를 구축했습니다.
+								</p>
+								
+								<div
+										style="background: var(--bg-soft); padding: 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.9rem; line-height: 1.6;">
+									<strong>💻 Frontend 개발 (100% 담당):</strong><br>
+									• React + JavaScript 기반 사용자 인터페이스 구현<br>
+									• 이미지 업로드 시스템: 드래그앤드롭 + 파일 선택 방식<br>
+									• 분석 결과 표시: 14개 분석 기준을 직관적 UI로 변환<br>
+									• 실시간 피드백: GPT 자연어 피드백을 말풍선 형태로 표시<br>
+									• Axios 기반 HTTP 통신으로 FastAPI 백엔드와 RESTful API 연동
+								</div>
+								
+								<div
+										style="background: var(--bg-soft); padding: 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.9rem; line-height: 1.6;">
+									<strong>🤖 6개 AI 모델 성능 비교 및 최적화 (100% 담당):</strong><br>
+									• 실험 대상: U2-Net, DeepLab, RemBG, MODNet, Robust Video MattingV2, RMBG-1.4<br>
+									• 실험 결과: U2-Net/DeepLab/RemBG는 경계선 부정확, RVM2는 실시간 처리 어려움<br>
+									• 최종 선정: MODNet(전반적 성능 양호)과 RMBG-1.4(머리카락 구분 우수) 듀얼 옵션<br>
+									• 성능뿐 아니라 상용화 시 라이선스까지 종합적으로 고려한 기술적 판단
+								</div>
+								
+								<div
+										style="background: var(--bg-soft); padding: 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.9rem; line-height: 1.6;">
+									<strong>🔧 선정된 모델 통합 구현:</strong><br>
+									• 배경 제거 API 구현: 이미지 전처리 → AI 모델 추론 → 결과 처리 파이프라인<br>
+									• 모델 선택 시스템: 사용자 용도에 따라 MODNet/RMBG-1.4 선택 가능<br>
+									• 에러 핸들링: 파일 형식/크기 제한, 서버 오류 등 예외 상황 처리
+								</div>
+								
+								<div class="project-metrics">
+									<div class="metric-card">
+										<span class="metric-value">6개</span>
+										<span class="metric-label">AI 모델 비교</span>
+									</div>
+									<div class="metric-card">
+										<span class="metric-value">2개</span>
+										<span class="metric-label">최종 선정</span>
+									</div>
+									<div class="metric-card">
+										<span class="metric-value">14개</span>
+										<span class="metric-label">분석 기준</span>
+									</div>
+									<div class="metric-card">
+										<span class="metric-value">1주</span>
+										<span class="metric-label">완성</span>
+									</div>
+								</div>
+								
+								<div class="tech-stack">
+									<span class="tech-item">React</span>
+									<span class="tech-item">JavaScript</span>
+									<span class="tech-item">Axios</span>
+									<span class="tech-item">MODNet</span>
+									<span class="tech-item">RMBG-1.4</span>
+									<span class="tech-item">U2-Net</span>
+									<span class="tech-item">DeepLab</span>
+									<span class="tech-item">RemBG</span>
+									<span class="tech-item">FastAPI</span>
+									<span class="tech-item">Python</span>
+									<span class="tech-item">Pillow</span>
+									<span class="tech-item">HuggingFace</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				
+				<!-- Technical Skills Section -->
+				<section class="section">
+					<div class="section-header">
+						<h2 class="section-title">
+							🛠️ 사용 기술
+						</h2>
+						<p class="section-subtitle">
+							AI/ML부터 Full-Stack 개발까지 다양한 기술을 실무에서 활용하고 있습니다.
+						</p>
+					</div>
+					
+					<div class="projects-grid">
+						<div class="project-card">
+							<div class="project-header">
+								<span class="project-badge">AI/ML</span>
+								<h3 class="project-title">AI/Machine Learning</h3>
+								<p class="project-subtitle">LLM 파인튜닝부터 Computer Vision까지</p>
+							</div>
+							<div class="project-content">
+								<div
+										style="background: var(--bg-soft); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; font-size: 0.9rem; line-height: 1.6;">
+									<strong>핵심 경험:</strong><br>
+									• <strong>LLM 파인튜닝:</strong> LoRA 기법으로 LLaMA 3.2 3B 모델 파인튜닝, 92% 정확도 달성<br>
+									• <strong>Multi-Agent 시스템:</strong> LangGraph로 복잡한 워크플로우 구현<br>
+									• <strong>Computer Vision:</strong> 6개 배경제거 모델 비교 실험 및 최적화<br>
+									• <strong>MLOps:</strong> WandB로 100+ 실험 추적, RunPod GPU 클러스터 배포
+								</div>
+								
+								<div class="tech-stack">
+									<span class="tech-item">LLaMA 3.2</span>
+									<span class="tech-item">LoRA Fine-tuning</span>
+									<span class="tech-item">LangGraph</span>
+									<span class="tech-item">MediaPipe</span>
+									<span class="tech-item">DeepFace</span>
+									<span class="tech-item">MODNet</span>
+									<span class="tech-item">RMBG-1.4</span>
+									<span class="tech-item">YOLOv8</span>
+									<span class="tech-item">WandB</span>
+									<span class="tech-item">RunPod</span>
+								</div>
+							</div>
+						</div>
+						
+						<div class="project-card">
+							<div class="project-header">
+								<span class="project-badge">Backend</span>
+								<h3 class="project-title">Backend Development</h3>
+								<p class="project-subtitle">API 서버부터 데이터베이스까지</p>
+							</div>
+							<div class="project-content">
+								<div
+										style="background: var(--bg-soft); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; font-size: 0.9rem; line-height: 1.6;">
+									<strong>핵심 경험:</strong><br>
+									• <strong>AI 서버:</strong> FastAPI로 LLM 서빙 및 Multi-Agent 시스템 구축<br>
+									• <strong>웹 서비스:</strong> Spring Boot 기반 Full-Stack 애플리케이션 개발<br>
+									• <strong>Database:</strong> MySQL, Oracle DB 설계 및 복잡한 SQL 쿼리 작성<br>
+									• <strong>인증/보안:</strong> OAuth, JWT 구현 및 보안 시스템 구축
+								</div>
+								
+								<div class="tech-stack">
+									<span class="tech-item">FastAPI</span>
+									<span class="tech-item">Spring Boot</span>
+									<span class="tech-item">Flask</span>
+									<span class="tech-item">MySQL</span>
+									<span class="tech-item">H2</span>
+									<span class="tech-item">Oracle DB</span>
+									<span class="tech-item">ChromaDB</span>
+									<span class="tech-item">OAuth</span>
+									<span class="tech-item">JWT</span>
+									<span class="tech-item">OpenDART API</span>
+								</div>
+							</div>
+						</div>
+						
+						<div class="project-card">
+							<div class="project-header">
+								<span class="project-badge">Frontend</span>
+								<h3 class="project-title">Frontend Development</h3>
+								<p class="project-subtitle">React 기반 모던 웹 애플리케이션</p>
+							</div>
+							<div class="project-content">
+								<div
+										style="background: var(--bg-soft); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; font-size: 0.9rem; line-height: 1.6;">
+									<strong>핵심 경험:</strong><br>
+									• <strong>React SPA:</strong> TypeScript 기반 현대적 웹 애플리케이션 개발<br>
+									• <strong>상태 관리:</strong> Jotai, TanStack Query로 복잡한 상태 관리<br>
+									• <strong>복잡한 UI:</strong> 무한 댓글, 애니메이션 메뉴, 커스텀 캘린더 구현<br>
+									• <strong>AI 연동:</strong> AI 모델과의 실시간 연동 및 결과 시각화
+								</div>
+								
+								<div class="tech-stack">
+									<span class="tech-item">React</span>
+									<span class="tech-item">TypeScript</span>
+									<span class="tech-item">JavaScript</span>
+									<span class="tech-item">Vite</span>
+									<span class="tech-item">Tailwind CSS</span>
+									<span class="tech-item">Jotai</span>
+									<span class="tech-item">TanStack Query</span>
+									<span class="tech-item">Material-UI</span>
+									<span class="tech-item">jsPDF</span>
+									<span class="tech-item">html2Canvas</span>
+								</div>
+							</div>
+						</div>
+						
+						<div class="project-card">
+							<div class="project-header">
+								<span class="project-badge">Data Science</span>
+								<h3 class="project-title">Data Science & Analytics</h3>
+								<p class="project-subtitle">데이터 분석부터 합성데이터 생성까지</p>
+							</div>
+							<div class="project-content">
+								<div
+										style="background: var(--bg-soft); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; font-size: 0.9rem; line-height: 1.6;">
+									<strong>핵심 경험:</strong><br>
+									• <strong>고급 통계:</strong> 다변량 절단정규분포 기법으로 고품질 합성데이터 생성<br>
+									• <strong>데이터 검증:</strong> t-SNE 시각화로 원본 데이터와 95% 분포 일치도 확인<br>
+									• <strong>데이터 처리:</strong> 대용량 재무데이터 전처리 및 정규화<br>
+									• <strong>시각화:</strong> 복잡한 데이터를 직관적인 그래프로 변환
+								</div>
+								
+								<div class="tech-stack">
+									<span class="tech-item">Python</span>
+									<span class="tech-item">NumPy</span>
+									<span class="tech-item">Pandas</span>
+									<span class="tech-item">t-SNE</span>
+									<span class="tech-item">다변량 절단정규분포</span>
+									<span class="tech-item">Matplotlib</span>
+									<span class="tech-item">Seaborn</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				
+				<!-- Technical Problem Solving Section -->
+				<section class="section">
+					<div class="section-header">
+						<h2 class="section-title">
+							🔧 기술적 문제해결 경험
+						</h2>
+						<p class="section-subtitle">
+							실제 프로덕션 환경에서 발생한 복잡한 이슈들을 독립적으로 분석하고 해결한 경험들입니다.
+						</p>
+					</div>
+					
+					<div class="projects-grid">
+						<div class="project-card">
+							<div class="project-header">
+								<span class="project-badge">Library Conflict Resolution</span>
+								<h3 class="project-title">라이브러리 충돌 해결</h3>
+								<p class="project-subtitle">LangGraph 설치 후 Pydantic v1/v2 호환성 충돌 문제 해결</p>
+							</div>
+							<div class="project-content">
+								<div
+										style="background: var(--error); color: white; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; font-size: 0.9rem; line-height: 1.6;">
+									<strong>문제:</strong> LangGraph 설치 후 ForwardRef._evaluate() 에러 발생<br>
+									<strong>원인:</strong> Pydantic v1/v2 호환성 충돌 및 Python 버전 호환성 문제
+								</div>
+								
+								<div
+										style="background: var(--bg-soft); padding: 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.9rem; line-height: 1.6;">
+									<strong>해결 과정:</strong><br>
+									• 1단계: 전체 의존성 트리 분석으로 충돌 지점 특정<br>
+									• 2단계: FastAPI 0.115.0 + Pydantic 2.11.7 + LangChain 0.3.25 조합 테스트<br>
+									• 3단계: 가상환경 재구성 및 requirements.txt 버전 고정<br>
+									• 4단계: pip check으로 의존성 무결성 최종 검증
+								</div>
+								
+								<div
+										style="background: var(--success); color: white; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.9rem; line-height: 1.6;">
+									<strong>결과:</strong> 모든 라이브러리가 안정적으로 동작하며, 팀 전체가 동일한 환경에서 개발 가능
+								</div>
+							</div>
+						</div>
+						
+						<div class="project-card">
+							<div class="project-header">
+								<span class="project-badge">Database Failover</span>
+								<h3 class="project-title">Database Failover 시스템</h3>
+								<p class="project-subtitle">MySQL 장애 시 H2 자동 전환으로 개발 안정성 확보</p>
+							</div>
+							<div class="project-content">
+								<div
+										style="background: var(--warning); color: white; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; font-size: 0.9rem; line-height: 1.6;">
+									<strong>배경:</strong> AWS RDS MySQL 프리 티어 한계 (월 750시간 제한) 고려<br>
+									<strong>목표:</strong> 개발 환경 편의성과 비용 효율성 동시 확보
+								</div>
+								
+								<div
+										style="background: var(--bg-soft); padding: 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.9rem; line-height: 1.6;">
+									<strong>구현 방법:</strong><br>
+									• 연결 상태 헬스체크 로직 추가<br>
+									• MySQL 연결 실패 시 자동 H2 전환 메커니즘<br>
+									• H2 인메모리 DB 백업 시스템 구성<br>
+									• Spring Boot 환경에서 동적 DataSource 전환
+								</div>
+								
+								<div
+										style="background: var(--success); color: white; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.9rem; line-height: 1.6;">
+									<strong>결과:</strong> 무중단 개발 환경 구축으로 팀 생산성 향상 및 비용 절감 효과
+								</div>
+							</div>
+						</div>
+						
+						<div class="project-card">
+							<div class="project-header">
+								<span class="project-badge">Performance Optimization</span>
+								<h3 class="project-title">OpenDART API 데이터 처리 최적화</h3>
+								<p class="project-subtitle">API 응답 데이터 정규화 및 VectorDB 최적화</p>
+							</div>
+							<div class="project-content">
+								<div
+										style="background: var(--error); color: white; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; font-size: 0.9rem; line-height: 1.6;">
+									<strong>문제:</strong> API 응답의 기업별/연도별 컬럼 구조가 불일치<br>
+									<strong>이슈:</strong> 원화/억원 단위 혼재, 계정과목명 상이
+								</div>
+								
+								<div
+										style="background: var(--bg-soft); padding: 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.9rem; line-height: 1.6;">
+									<strong>해결 방안:</strong><br>
+									• 25개 핵심 재무지표로 표준화 스키마 설계<br>
+									• 손익계산서, 재무상태표, 현금흐름표 항목 통합 매핑 테이블 작성<br>
+									• 기업별 계정과목 차이를 통일된 형태로 변환<br>
+									• VectorDB 저장을 위한 JSON 구조화 및 임베딩 전처리 파이프라인
+								</div>
+								
+								<div
+										style="background: var(--success); color: white; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.9rem; line-height: 1.6;">
+									<strong>결과:</strong> 데이터 일관성 확보 및 AI 모델 학습 품질 향상
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				
+				<!-- Team Leadership Section -->
+				<section class="section">
+					<div class="section-header">
+						<h2 class="section-title">
+							👥 팀 리더십 & 기술 멘토링
+						</h2>
+						<p class="section-subtitle">
+							팀원들과의 협업과 기술 지식 공유를 통해 팀 전체의 역량 향상에 기여한 경험들입니다.
+						</p>
+					</div>
+					
+					<div class="projects-grid">
+						<div class="project-card">
+							<div class="project-header">
+								<span class="project-badge">Technical Study</span>
+								<h3 class="project-title">기술 지식 공유 및 팀 협업</h3>
+								<p class="project-subtitle">주간 기술 스터디 진행 및 복잡한 개념의 이해하기 쉬운 설명</p>
+							</div>
+							<div class="project-content">
+								<div
+										style="background: var(--bg-soft); padding: 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.9rem; line-height: 1.6;">
+									<strong>스터디 진행:</strong><br>
+									• LLM 파인튜닝, LangGraph, VectorDB 관련 주간 기술 스터디 기획 및 진행<br>
+									• 복잡한 다변량 분포 개념을 팀원들에게 이해하기 쉽게 설명<br>
+									• Notion 기반 기술 문서 작성으로 프로젝트 지식 공유<br>
+									• 이론과 실습을 결합한 실무 중심 교육
+								</div>
+								
+								<div
+										style="background: var(--success); color: white; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.9rem; line-height: 1.6;">
+									<strong>성과:</strong> 팀 전체의 AI 기술 이해도 대폭 향상 및 프로젝트 성공률 증가
+								</div>
+							</div>
+						</div>
+						
+						<div class="project-card">
+							<div class="project-header">
+								<span class="project-badge">Code Review & Git Strategy</span>
+								<h3 class="project-title">코드 리뷰 및 협업 환경 구축</h3>
+								<p class="project-subtitle">건설적인 코드 리뷰와 Git 전략 수립으로 팀 개발 품질 향상</p>
+							</div>
+							<div class="project-content">
+								<div
+										style="background: var(--bg-soft); padding: 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.9rem; line-height: 1.6;">
+									<strong>코드 리뷰:</strong><br>
+									• 단순 오류 지적이 아닌 개선 방향 제시로 팀 역량 향상<br>
+									• 브랜치 전략 수립 및 커밋 컨벤션 가이드<br>
+									• AI 서버 API 명세서 작성 및 Swagger 문서 자동 생성<br>
+									• 팀원들 간의 소통 비용 절감 및 개발 속도 향상
+								</div>
+								
+								<div
+										style="background: var(--success); color: white; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.9rem; line-height: 1.6;">
+									<strong>결과:</strong> 코드 품질 향상 및 팀 협업 효율성 대폭 개선
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				
+				<!-- Current Development Section -->
+				<section class="section">
+					<div class="section-header">
+						<h2 class="section-title">
+							🚀 현재 진행 중인 개선사항
+						</h2>
+						<p class="section-subtitle">
+							지속적인 시스템 개선과 품질 향상을 위해 현재 진행 중인 작업들입니다.
+						</p>
+					</div>
+					
+					<div class="projects-grid">
+						<div class="project-card">
+							<div class="project-header">
+								<span class="project-badge">Accuracy Improvement</span>
+								<h3 class="project-title">신용평가 정확도 향상</h3>
+								<p class="project-subtitle">룰베이스 검증 + GPT 필터링으로 이상 결과 방지</p>
+							</div>
+							<div class="project-content">
+								<div
+										style="background: var(--warning); color: white; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; font-size: 0.9rem; line-height: 1.6;">
+									<strong>발견된 문제:</strong> 자본잠식 기업임에도 A+ 등급이 나오는 이상사태 발생
+								</div>
+								
+								<div
+										style="background: var(--bg-soft); padding: 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.9rem; line-height: 1.6;">
+									<strong>개선 중인 방안:</strong><br>
+									• 룰베이스 검증 로직 구현으로 중간 검증 시스템 구축<br>
+									• GPT 기반 중간 필터링: 보고서 작성 전 이상 결과 사전 차단<br>
+									• 이중 검증 시스템으로 신뢰성 확보<br>
+									• 보고서 품질 향상을 위한 섹션별 요약 기능 추가
+								</div>
+							</div>
+						</div>
+						
+						<div class="project-card">
+							<div class="project-header">
+								<span class="project-badge">System Optimization</span>
+								<h3 class="project-title">시스템 최적화</h3>
+								<p class="project-subtitle">데이터 연동 개선 및 성능 향상</p>
+							</div>
+							<div class="project-content">
+								<div
+										style="background: var(--bg-soft); padding: 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.9rem; line-height: 1.6;">
+									<strong>진행 중인 개선사항:</strong><br>
+									• 정성적 데이터 긍정/부정 분류 정확도 향상<br>
+									• 재무데이터 단위 통일 (원/억원 혼재 문제 해결)<br>
+									• UI 변경으로 인한 데이터 연동 완성<br>
+									• 관련 그래프 및 시각화 기능 추가 예정<br>
+									• ChromaDB에서 QDrant로 마이그레이션 검토
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				
+				<!-- Education Section -->
+				<section class="section" id="education">
+					<div class="section-header">
+						<h2 class="section-title">
+							📚 교육 배경
+						</h2>
+						<p class="section-subtitle">
+							컴퓨터공학 기반으로 AI 전문 교육과정을 수료했습니다.
+						</p>
+					</div>
+					
+					<div class="education-timeline">
+						<div class="education-item">
+							<div class="education-header">
+								<div>
+									<h3 class="education-title">컴퓨터공학과 학사</h3>
+									<p class="education-school">서울과학기술대학교</p>
+								</div>
+								<span class="education-date">2015.03 - 2023.06</span>
+							</div>
+						</div>
+						
+						<div class="education-item">
+							<div class="education-header">
+								<div>
+									<h3 class="education-title">AI 웹서비스 자바풀스택</h3>
+									<p class="education-school">Spring Boot, React 기반 Full-Stack 개발</p>
+								</div>
+								<span class="education-date">2023.08 - 2024.03</span>
+							</div>
+						</div>
+						
+						<div class="education-item">
+							<div class="education-header">
+								<div>
+									<h3 class="education-title">생성형 AI활용 인재 양성과정</h3>
+									<p class="education-school">LLM 파인튜닝, LangGraph, VectorDB 집중 학습</p>
+								</div>
+								<span class="education-date">2025.05 - 2025.07</span>
+							</div>
+						</div>
+					</div>
+				</section>
+				
+				<!-- Career Goals Section -->
+				<section class="section">
+					<div class="section-header">
+						<h2 class="section-title">
+							🎯 희망 포지션
+						</h2>
+						<p class="section-subtitle">
+							AI 기술의 실무 경험과 Full-Stack 개발 역량을 바탕으로 기여하고 싶습니다.
+						</p>
+					</div>
+					
+					<div class="projects-grid">
+						<div class="project-card">
+							<div class="project-header">
+								<span class="project-badge">1순위</span>
+								<h3 class="project-title">AI Engineer</h3>
+								<p class="project-subtitle">LLM 파인튜닝 및 Multi-Agent 시스템 개발 전문성</p>
+							</div>
+							<div class="project-content">
+								<p class="project-description">
+									LLM 파인튜닝 및 Multi-Agent 시스템 개발 경험, 실제 AI 서비스 배포 및 운영 경험을 보유하고 있습니다.
+								</p>
+								
+								<div class="tech-stack">
+									<span class="tech-item">LLaMA 3.2 파인튜닝</span>
+									<span class="tech-item">LangGraph Multi-Agent</span>
+									<span class="tech-item">RunPod GPU 배포</span>
+									<span class="tech-item">프로덕션 운영</span>
+								</div>
+							</div>
+						</div>
+						
+						<div class="project-card">
+							<div class="project-header">
+								<span class="project-badge">2순위</span>
+								<h3 class="project-title">Frontend Developer</h3>
+								<p class="project-subtitle">React 기반 복잡한 UI/UX 구현 및 AI 서비스 인터페이스 전문성</p>
+							</div>
+							<div class="project-content">
+								<p class="project-description">
+									React 기반 복잡한 UI/UX 구현 경험과 AI 서비스의 사용자 인터페이스 전문성을 보유하고 있습니다.
+								</p>
+								
+								<div class="tech-stack">
+									<span class="tech-item">React SPA 개발</span>
+									<span class="tech-item">TypeScript</span>
+									<span class="tech-item">AI 연동 특화</span>
+									<span class="tech-item">복잡 UI 구현</span>
+								</div>
+							</div>
+						</div>
+						
+						<div class="project-card">
+							<div class="project-header">
+								<span class="project-badge">3순위</span>
+								<h3 class="project-title">Backend Developer</h3>
+								<p class="project-subtitle">FastAPI, Spring Boot 기반 서버 개발 및 데이터베이스 설계</p>
+							</div>
+							<div class="project-content">
+								<p class="project-description">
+									FastAPI, Spring Boot 기반 서버 개발과 데이터베이스 설계 및 API 개발 경험을 보유하고 있습니다.
+								</p>
+								
+								<div class="tech-stack">
+									<span class="tech-item">FastAPI AI 서버</span>
+									<span class="tech-item">Spring Boot</span>
+									<span class="tech-item">Database 설계</span>
+									<span class="tech-item">API 설계</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				
+				<!-- Contact CTA -->
+				<section class="section">
+					<div class="section-header" style="text-align: center;">
+						<h2 class="section-title" style="justify-content: center;">
+							🚀 함께 일해요!
+						</h2>
+						<p class="section-subtitle">
+							새로운 AI 프로젝트와 혁신적인 아이디어를 함께 실현하고 싶습니다.
+						</p>
+					</div>
+					
+					<div
+							style="background: var(--bg-soft); padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
+						<div
+								style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; text-align: center;">
+							<div>
+								<h4 style="color: var(--primary); margin-bottom: 0.5rem;">💼 희망 포지션</h4>
+								<p style="color: var(--text-light); font-size: 0.9rem;">AI Engineer (1순위)<br>Frontend
+									Developer (2순위)<br>Backend Developer (3순위)</p>
+							</div>
+							<div>
+								<h4 style="color: var(--primary); margin-bottom: 0.5rem;">🎯 핵심 역량</h4>
+								<p style="color: var(--text-light); font-size: 0.9rem;">LLM 파인튜닝<br>Multi-Agent
+									시스템<br>Full-Stack 개발</p>
+							</div>
+							<div>
+								<h4 style="color: var(--primary); margin-bottom: 0.5rem;">🌟 특별한 점</h4>
+								<p style="color: var(--text-light); font-size: 0.9rem;">빠른 학습 능력<br>실무 문제 해결<br>팀
+									멘토링 경험</p>
+							</div>
+						</div>
+					</div>
+					
+					<div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+						<a href="mailto:jack1087902@gmail.com" class="btn btn-primary">
+							📧 이메일로 연락하기
+						</a>
+						<a href="https://github.com/jaehak0" class="btn btn-outline"
+						   style="color: var(--primary); border-color: var(--primary);">
+							💻 GitHub에서 더 보기
+						</a>
+						<a href="https://curse-swordtail-eb6.notion.site/91a958c8e09441b2b5297a672b81d0db"
+						   class="btn btn-outline" style="color: var(--primary); border-color: var(--primary);">
+							📝 학습 노트 보기
+						</a>
+					</div>
+					
+					<div
+							style="text-align: center; margin-top: 2rem; padding: 1rem; background: linear-gradient(135deg, var(--primary), #4f46e5); color: white; border-radius: 12px;">
+						<p style="font-size: 1.1rem; font-weight: 500; margin: 0;">
+							"다변량 절단정규분포로 5만개 데이터를 생성하고, 92% 정확도의 AI 모델을 7주 만에 완성한 개발자입니다."
+						</p>
+					</div>
+				</section>
+			</main>
+		</div>
+	</div>
+</div>
+</body>
+</html><!DOCTYPE html>

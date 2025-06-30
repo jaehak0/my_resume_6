@@ -1,0 +1,542 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+
+@import 'tailwindcss';
+
+@tailwind utilities;
+
+html, body {
+	/*zoom: 90%;*/
+}
+
+
+/* 폰트 설정 */
+.font-noto {
+	font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Hero 섹션 - 그라데이션과 애니메이션 */
+.hero {
+	@apply min-h-screen flex items-center relative overflow-hidden pt-20;
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.hero::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="3" fill="rgba(255,255,255,0.08)"/><circle cx="40" cy="80" r="2" fill="rgba(255,255,255,0.12)"/></svg>');
+	animation: float 20s infinite ease-in-out;
+}
+
+@keyframes float {
+	0%, 100% {
+		transform: translateY(0px) rotate(0deg);
+	}
+	50% {
+		transform: translateY(-20px) rotate(180deg);
+	}
+}
+
+.hero-content {
+	@apply grid gap-16 items-center px-8 max-w-7xl mx-auto w-full relative z-10;
+	grid-template-columns: 1fr 400px;
+}
+
+.hero-badge {
+	@apply inline-block text-white px-4 py-2 rounded-full text-sm font-medium mb-4;
+	background: rgba(255, 255, 255, 0.2);
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 1024px) {
+	.hero-badge {
+		@apply max-w-56 w-full text-center mx-auto;
+	}
+}
+
+.hero-name {
+	@apply text-7xl font-bold mb-4;
+	background: linear-gradient(135deg, white, rgba(255, 255, 255, 0.8));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.hero-card {
+	@apply text-white rounded-3xl p-10;
+	background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(20px);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card-avatar {
+	@apply w-24 h-24 rounded-full flex items-center justify-center text-4xl mx-auto mb-4;
+	background: rgba(255, 255, 255, 0.2);
+	border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.stat-box {
+	@apply p-4 rounded-xl text-center;
+	background: rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-number {
+	@apply text-2xl font-bold block mb-1;
+}
+
+.stat-label {
+	@apply text-sm opacity-80;
+}
+
+/* 버튼 스타일 */
+.btn-primary {
+	@apply bg-white text-indigo-600 px-8 py-4 rounded-xl font-semibold shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex items-center gap-2;
+}
+
+.btn-outline {
+	@apply bg-transparent text-white border-2 px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2;
+	border-color: rgba(255, 255, 255, 0.3);
+	backdrop-filter: blur(10px);
+}
+
+.btn-outline:hover {
+	background: rgba(255, 255, 255, 0.1);
+	border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* 네비게이션 링크 */
+.nav-link {
+	@apply text-slate-600 font-medium px-4 py-2 rounded-lg hover:text-indigo-600 hover:bg-slate-50 transition-all bg-transparent border-none cursor-pointer;
+}
+
+/* 다운로드 버튼 */
+.download-btn {
+	@apply fixed bottom-8 right-8 bg-indigo-600 text-white border-none rounded-full px-6 py-4 font-semibold cursor-pointer shadow-lg z-50 hover:bg-indigo-700 hover:-translate-y-1 hover:shadow-xl transition-all flex items-center gap-2;
+}
+
+/* 컨텐츠 그리드 */
+.content-grid {
+	@apply max-w-7xl mx-auto grid gap-16;
+	grid-template-columns: 350px 1fr;
+}
+
+/* 사이드바 */
+.sidebar {
+	@apply flex flex-col gap-8;
+}
+
+.sidebar-section {
+	@apply bg-white rounded-2xl p-8 shadow-md border border-slate-200;
+}
+
+.sidebar-title {
+	@apply text-xl font-semibold text-indigo-600 mb-6 flex items-center gap-2;
+}
+
+.contact-item {
+	@apply flex items-center gap-3 p-3 bg-slate-50 rounded-lg text-slate-800 hover:bg-indigo-600 hover:text-white hover:translate-x-1 transition-all;
+}
+
+.skill-category {
+	@apply mb-6;
+}
+
+.skill-category:last-child {
+	@apply mb-0;
+}
+
+.skill-category-title {
+	@apply text-base font-semibold text-slate-800 mb-3 flex items-center gap-2;
+}
+
+.skill-items {
+	@apply flex flex-wrap gap-2;
+}
+
+.skill-items-desktop {
+	@apply hidden lg:flex flex-wrap gap-2;
+}
+
+.skill-items-mobile {
+	@apply flex flex-wrap gap-2 lg:hidden;
+}
+
+.skill-tag {
+	@apply bg-slate-50 text-slate-800 px-3 py-2 rounded-full text-sm border border-slate-200 hover:bg-indigo-600 hover:text-white hover:border-indigo-600 transition-all cursor-default;
+}
+
+/* 프로젝트 카드 */
+.project-card {
+	@apply bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 hover:-translate-y-1 hover:shadow-xl hover:border-indigo-600 transition-all;
+}
+
+.project-details {
+	@apply bg-slate-50 p-4 rounded-lg my-4 text-sm leading-relaxed;
+}
+
+.metric-card {
+	@apply bg-white p-4 rounded-xl text-center border border-slate-200;
+}
+
+.metric-value {
+	@apply text-2xl font-bold text-indigo-600 block;
+}
+
+.metric-label {
+	@apply text-sm text-slate-600 mt-1;
+}
+
+.tech-item {
+	@apply bg-indigo-600 text-white px-3 py-2 rounded-2xl text-sm font-medium;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1200px) {
+	.content-grid {
+		grid-template-columns: 300px 1fr;
+		@apply gap-12;
+	}
+}
+
+@media (max-width: 968px) {
+	.hero-content {
+		grid-template-columns: 1fr;
+		@apply text-center gap-8;
+	}
+
+	.content-grid {
+		grid-template-columns: 1fr;
+		@apply gap-8;
+	}
+
+	.sidebar {
+		@apply order-0;
+	}
+
+	.nav-menu {
+		@apply hidden;
+	}
+}
+
+@media (max-width: 640px) {
+	.hero-name {
+		@apply text-5xl;
+	}
+
+	.hero-content {
+		@apply px-4;
+	}
+
+	.btn-primary,
+	.btn-outline {
+		@apply w-full justify-center max-w-xs;
+	}
+}
+
+/* 프린트 스타일 */
+@media print {
+	.nav,
+	.download-btn {
+		@apply hidden;
+	}
+
+	.hero {
+		@apply min-h-0 py-8;
+		background: #6366f1 !important;
+	}
+
+	.content-grid {
+		grid-template-columns: 1fr;
+		@apply gap-4;
+	}
+
+	.sidebar-section,
+	.project-card {
+		break-inside: avoid;
+		@apply mb-4;
+	}
+}
+
+/* CSS에 추가할 스타일들 */
+
+/* 타임라인 스타일 보완 */
+.education-timeline {
+	position: relative;
+	padding-left: 2rem;
+}
+
+.education-timeline::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 2px;
+	background: var(--primary);
+}
+
+/* CTA 섹션 호버 효과 */
+.cta-button {
+	@apply transition-all duration-300 transform;
+}
+
+.cta-button:hover {
+	@apply -translate-y-1 shadow-xl;
+}
+
+/* 그라데이션 텍스트 */
+.gradient-text {
+	background: linear-gradient(135deg, #6366f1, #4f46e5);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+/* Resume.css에 추가할 프로필 사진 관련 스타일 */
+
+/* Resume.css에 추가할 프로필 사진 관련 스타일 */
+
+/* 프로필 사진 스타일 */
+.profile-image {
+	@apply w-28 h-28 lg:w-40 lg:h-40 rounded-2xl object-cover shadow-2xl transition-transform duration-300;
+	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25),
+	0 0 0 4px rgba(255, 255, 255, 0.2);
+}
+
+.profile-image:hover {
+	@apply scale-105;
+}
+
+/* Hero 사진+이름 컨테이너 */
+.hero-name-section {
+	@apply flex flex-col lg:flex-row items-center lg:items-end gap-6 lg:gap-8 mb-8;
+}
+
+/* 모바일에서 사진이 이름 위에 오도록 */
+@media (max-width: 1024px) {
+	.hero-name-section {
+		@apply text-center;
+	}
+
+	.profile-image {
+		@apply order-1;
+	}
+
+	.hero-name {
+		@apply order-2;
+	}
+}
+
+/* 데스크톱에서 사진(왼쪽)과 이름(오른쪽)이 나란히 */
+@media (min-width: 1024px) {
+	.hero-name-section {
+		@apply text-left;
+	}
+
+	.profile-image {
+		@apply order-1;
+	}
+
+	.hero-name {
+		@apply order-2;
+	}
+}
+
+/* 카드 아바타 스타일 조정 */
+.card-avatar-icon {
+	@apply w-24 h-24 rounded-full flex items-center justify-center text-4xl mx-auto mb-4;
+	background: rgba(255, 255, 255, 0.2);
+	border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Resume.css에 추가 */
+.mobile-only {
+	display: block;
+}
+
+@media (min-width: 1024px) {
+	.mobile-only {
+		display: none;
+	}
+}
+
+.desktop-only {
+	display: none;
+}
+
+@media (min-width: 1024px) {
+	.desktop-only {
+		display: inline-block;
+	}
+}
+
+/* Resume.css에 추가할 이미지 최적화 스타일 */
+
+/* === 이미지 최적화 ===  */
+
+/* 모든 이미지에 대한 기본 최적화 */
+img {
+	/* 고화질 렌더링 */
+	image-rendering: -webkit-optimize-contrast;
+	image-rendering: crisp-edges;
+	image-rendering: pixelated;
+
+	/* CORS 설정 */
+	crossorigin: anonymous;
+
+	/* 로딩 최적화 */
+	loading: eager;
+
+	/* 크기 최적화 */
+	max-width: 100%;
+	height: auto;
+
+	/* 렌더링 최적화 */
+	will-change: transform;
+	backface-visibility: hidden;
+}
+
+/* 프로필 이미지 특별 최적화 */
+.profile-image {
+	/* 고화질 유지 */
+	image-rendering: -webkit-optimize-contrast !important;
+	image-rendering: crisp-edges !important;
+
+	/* PDF용 최적화 */
+	-webkit-print-color-adjust: exact;
+	print-color-adjust: exact;
+
+	/* 크기 고정 */
+	width: 224px !important; /* w-56 = 224px */
+	height: 224px !important; /* h-56 = 224px */
+
+	/* 오브젝트 핏 */
+	object-fit: cover;
+	object-position: center;
+
+	/* 렌더링 품질 */
+	image-rendering: auto;
+	image-rendering: high-quality;
+	image-rendering: -webkit-crisp-edges;
+	image-rendering: -moz-crisp-edges;
+
+	/* 안티앨리어싱 */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* 작은 화면에서의 프로필 이미지 */
+@media (max-width: 1024px) {
+	.profile-image {
+		width: 160px !important; /* w-40 = 160px */
+		height: 160px !important; /* h-40 = 160px */
+	}
+}
+
+/* PDF 프린트 시 이미지 최적화 */
+@media print {
+	img {
+		/* 프린트용 최적화 */
+		-webkit-print-color-adjust: exact !important;
+		print-color-adjust: exact !important;
+		color-adjust: exact !important;
+
+		/* 이미지 품질 보장 */
+		image-rendering: -webkit-optimize-contrast !important;
+		image-rendering: crisp-edges !important;
+
+		/* 페이지 브레이크 방지 */
+		break-inside: avoid;
+		page-break-inside: avoid;
+
+		/* 크기 고정 */
+		max-width: 100% !important;
+		height: auto !important;
+	}
+
+	.profile-image {
+		/* PDF에서 프로필 이미지 크기 최적화 */
+		width: 200px !important;
+		height: 200px !important;
+
+		/* 고품질 유지 */
+		image-rendering: auto !important;
+
+		/* 위치 고정 */
+		object-fit: cover !important;
+		object-position: center !important;
+	}
+}
+
+/* Canvas 렌더링 최적화 */
+canvas {
+	image-rendering: -webkit-optimize-contrast;
+	image-rendering: crisp-edges;
+	image-rendering: pixelated;
+}
+
+/* 이미지 로딩 상태 처리 */
+img[src=""], img:not([src]), img[src="#"] {
+	opacity: 0;
+	visibility: hidden;
+}
+
+img {
+	transition: opacity 0.3s ease;
+}
+
+img.loaded {
+	opacity: 1;
+	visibility: visible;
+}
+
+/* 이미지 컨테이너 최적화 */
+.hero-content, .profile-card {
+	/* 이미지가 포함된 컨테이너 최적화 */
+	contain: layout style paint;
+	will-change: transform;
+}
+
+/* 고해상도 디스플레이 대응 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	.profile-image {
+		image-rendering: -webkit-optimize-contrast;
+		image-rendering: crisp-edges;
+	}
+}
+
+/* 이미지 로딩 에러 처리 */
+.profile-image {
+	background-color: #f8fafc;
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f8fafc"/><text x="50" y="50" text-anchor="middle" dy="0.3em" fill="%23475569" font-family="Arial" font-size="14">이미지</text></svg>');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+/* 이미지가 로드되면 배경 제거 */
+.profile-image[src]:not([src=""]) {
+	background-image: none;
+}
+
+/* PDF 생성 시 임시 스타일 */
+.pdf-generating img {
+	/* PDF 생성 중일 때 이미지 최적화 */
+	image-rendering: auto !important;
+	-webkit-print-color-adjust: exact !important;
+	print-color-adjust: exact !important;
+
+	/* 강제 로딩 완료 대기 */
+	opacity: 1 !important;
+	visibility: visible !important;
+}
+
+.pdf-only {
+	/* PDF 생성 시만 적용된 스타일 */
+	display: none !important;
+}
