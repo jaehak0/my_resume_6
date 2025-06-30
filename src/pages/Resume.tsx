@@ -38,7 +38,7 @@ const Resume: React.FC = () => {
           <div className='content-grid'>
             {/* Sidebar */}
             <Sidebar />
-            <div className='pdf-only h-[430px] hidden'></div>
+            <div className='pdf-only h-[340px] hidden'></div>
             {/* Main Content */}
             <main className='flex flex-col gap-12'>
               {/* Projects Section */}
