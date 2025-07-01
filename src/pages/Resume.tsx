@@ -55,7 +55,7 @@ const Resume: React.FC = () => {
               {/* 교육 배경 섹션 */}
               <EducationSection />
               {/* 희망 포지션 섹션 */}
-              <JobObjectiveSection />
+              {/*<JobObjectiveSection />*/}
               {/* Contact CTA 섹션 */}
               {/*<ContactSection />*/}
             </main>
