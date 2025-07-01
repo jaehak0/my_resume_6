@@ -8,7 +8,7 @@ import TrobleShootingSection from '@components/sectiions/TrobleShootingSection.t
 import LeadingSection from '@components/sectiions/LeadingSection.tsx';
 import ImprovementSection from '@components/sectiions/ImprovementSection.tsx';
 import EducationSection from '@components/sectiions/EducationSection.tsx';
-import JobObjectiveSection from '@components/sectiions/JobObjectiveSection.tsx';
+// import JobObjectiveSection from '@components/sectiions/JobObjectiveSection.tsx';
 import Navigation from '@components/Navigation.tsx';
 // import { usePDFExport } from '@shared/utils/selectivePdfFix.ts';
 // import { usePDFExport } from '@shared/utils/exportPdf.ts';
