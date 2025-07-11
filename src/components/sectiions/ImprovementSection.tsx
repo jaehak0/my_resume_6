@@ -2,7 +2,7 @@ import React from 'react';
 
 const ImprovementSection: React.FC = () => {
   return (
-    <section className='bg-white rounded-2xl p-10 shadow-md border border-slate-200'>
+    <section className='force-page-break bg-white rounded-2xl p-10 shadow-md border border-slate-200'>
       <div className='mb-8'>
         <h2 className='text-4xl font-bold text-indigo-600 mb-2 flex items-center gap-3'>
           🚀 현재 진행 중인 개선사항

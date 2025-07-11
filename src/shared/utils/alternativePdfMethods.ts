@@ -1,6 +1,5 @@
 // utils/alternativePdfMethods.ts - UI 완전 유지하는 PDF 생성 대안들
 
-
 // 방법 3: 브라우저 내장 print 기능 활용 (가장 간단)
 export const generatePDFWithBrowserPrint = () => {
   // CSS @media print 스타일을 완벽하게 활용
@@ -24,11 +23,11 @@ export const generatePDFWithBrowserPrint = () => {
       }
       
       html, body {
-        zoom: 87% !important;
+        zoom: 89% !important;
       }
       
     .hero, .hero * {
-      zoom: 101% !important;
+      zoom: 100% !important;
     }
       
       .pdf-only {
@@ -61,6 +60,17 @@ export const generatePDFWithBrowserPrint = () => {
       .project-card, .sidebar-section {
         break-inside: avoid;
         page-break-inside: avoid;
+      }
+      
+      /* 강제로 페이지 나누기 */
+      .force-page-break {
+        page-break-before: always; /* 이 요소 앞에서 페이지 나눔 */
+        break-before: page;        /* 최신 표준 */
+      }
+      
+      .trouble-shooting, .leading-section, education-section,
+      .skills-section {
+        margin-top: -1.2cm;
       }
       
       /* 색상 최적화 */
@@ -99,11 +109,10 @@ export const generatePDFWithBrowserPrint = () => {
   }, 1000);
 };
 
-
 // 추천 사용법에 따른 export
 export const usePDFExport = () => {
   const exportPDF = async () => {
     generatePDFWithBrowserPrint();
-  }
+  };
   return { exportPDF };
 };

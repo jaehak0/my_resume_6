@@ -2,7 +2,7 @@ import React from 'react';
 
 const TroubleShooting: React.FC = () => {
   return (
-    <section className='bg-white rounded-2xl p-10 shadow-md border border-slate-200'>
+    <section className='trouble-shooting force-page-break bg-white rounded-2xl p-10 shadow-md border border-slate-200'>
       <div className='mb-8'>
         <h2 className='text-4xl font-bold text-indigo-600 mb-2 flex items-center gap-3'>
           🔧 기술적 문제해결 경험
@@ -17,7 +17,9 @@ const TroubleShooting: React.FC = () => {
         <div className='project-card'>
           <div className='bg-white p-8 border-b border-slate-200 relative'>
             <h3 className='text-2xl font-bold text-indigo-600 mb-2'>신용평가 정확도 개선 시스템</h3>
-            <p className='text-slate-600'>자본잠식 기업 A+ 문제 해결을 위한 룰베이스 검증 + Agent 시스템 구축</p>
+            <p className='text-slate-600'>
+              자본잠식 기업 A+ 문제 해결을 위한 룰베이스 검증 + Agent 시스템 구축
+            </p>
           </div>
           <div className='p-8'>
             <div className='rose-text-box-soft p-4 mb-4 leading-relaxed'>
@@ -28,17 +30,19 @@ const TroubleShooting: React.FC = () => {
 
             <div className='project-details'>
               <strong>구현한 해결 방안:</strong>
-              <br />
-              • <strong>룰베이스 검증 로직 (본인 담당):</strong> 자본금 대비 부채비율, 영업현금흐름 등 핵심 재무지표 기반 1차 검증
-              <br />
-              • <strong>LangGraph Agent 기반 2차 검증 (팀장 담당):</strong> GPT-4를 활용한 정성적 분석으로 룰베이스 한계 보완
-              <br />
-              • <strong>이중 검증 파이프라인:</strong> ML 예측 → 룰베이스 검증 → Agent 검증 3단계 워크플로우
-              <br />• <strong>조건부 검증 최적화:</strong> AAA 등급 우대 조건 설정으로 과도한 하향 조정 방지
+              <br />• <strong>룰베이스 검증 로직 (본인 담당):</strong> 자본금 대비 부채비율,
+              영업현금흐름 등 핵심 재무지표 기반 1차 검증
+              <br />• <strong>LangGraph Agent 기반 2차 검증 (팀장 담당):</strong> GPT-4를 활용한
+              정성적 분석으로 룰베이스 한계 보완
+              <br />• <strong>이중 검증 파이프라인:</strong> ML 예측 → 룰베이스 검증 → Agent 검증
+              3단계 워크플로우
+              <br />• <strong>조건부 검증 최적화:</strong> AAA 등급 우대 조건 설정으로 과도한 하향
+              조정 방지
             </div>
 
             <div className='emerald-text-box-soft p-4 leading-relaxed'>
-              <strong>결과:</strong> 신용평가 시스템의 신뢰성과 정확성을 대폭 향상, 극단적인 오류 사례 완전 제거
+              <strong>결과:</strong> 신용평가 시스템의 신뢰성과 정확성을 대폭 향상, 극단적인 오류
+              사례 완전 제거
             </div>
           </div>
         </div>
@@ -47,30 +51,35 @@ const TroubleShooting: React.FC = () => {
         <div className='project-card'>
           <div className='bg-white p-8 border-b border-slate-200 relative'>
             <h3 className='text-2xl font-bold text-indigo-600 mb-2'>SSE 실시간 피드백 시스템</h3>
-            <p className='text-slate-600'>사용자 피드백을 위한 Server-Sent Events 기반 실시간 통신 구현</p>
+            <p className='text-slate-600'>
+              사용자 피드백을 위한 Server-Sent Events 기반 실시간 통신 구현
+            </p>
           </div>
           <div className='p-8'>
             <div className='amber-text-box-soft p-4 mb-4'>
-              <strong>배경:</strong> 신용평가 및 보고서 생성 과정의 복잡성으로 인한 사용자 대기시간 문제
+              <strong>배경:</strong> 신용평가 및 보고서 생성 과정의 복잡성으로 인한 사용자 대기시간
+              문제
               <br />
               <strong>목표:</strong> 사용자 경험 개선 및 시스템 투명성 확보
             </div>
 
             <div className='project-details'>
               <strong>구현 방법:</strong>
-              <br />
-              • <strong>백엔드 SSE 엔드포인트:</strong> FastAPI에서 Server-Sent Events 스트림 구현
-              <br />
-              • <strong>프론트엔드 실시간 UI:</strong> React에서 Fetch API + ReadableStream으로 SSE 데이터 파싱
-              <br />
-              • <strong>단계별 피드백:</strong> 데이터 수집 → 신용평가 → 보고서 생성 각 단계의 진행률과 상태를 실시간 전달
-              <br />
-              • <strong>JSON 구조화:</strong> 구조화된 이벤트 데이터 전송으로 에러 핸들링 및 연결 상태 관리
-              <br />• <strong>사용자 경험 최적화:</strong> 로딩 애니메이션, 진행률 표시, 단계별 메시지 표시
+              <br />• <strong>백엔드 SSE 엔드포인트:</strong> FastAPI에서 Server-Sent Events 스트림
+              구현
+              <br />• <strong>프론트엔드 실시간 UI:</strong> React에서 Fetch API +
+              ReadableStream으로 SSE 데이터 파싱
+              <br />• <strong>단계별 피드백:</strong> 데이터 수집 → 신용평가 → 보고서 생성 각 단계의
+              진행률과 상태를 실시간 전달
+              <br />• <strong>JSON 구조화:</strong> 구조화된 이벤트 데이터 전송으로 에러 핸들링 및
+              연결 상태 관리
+              <br />• <strong>사용자 경험 최적화:</strong> 로딩 애니메이션, 진행률 표시, 단계별
+              메시지 표시
             </div>
 
             <div className='emerald-text-box-soft p-4 leading-relaxed'>
-              <strong>결과:</strong> 사용자 경험 대폭 개선 및 시스템 투명성 확보, 대기시간에 대한 사용자 불안감 해소
+              <strong>결과:</strong> 사용자 경험 대폭 개선 및 시스템 투명성 확보, 대기시간에 대한
+              사용자 불안감 해소
             </div>
           </div>
         </div>
@@ -100,7 +109,8 @@ const TroubleShooting: React.FC = () => {
             </div>
 
             <div className='emerald-text-box-soft p-4 leading-relaxed'>
-              <strong>결과:</strong> 모든 라이브러리가 안정적으로 동작하며, 팀 전체가 동일한 개발 환경에서 작업 가능
+              <strong>결과:</strong> 모든 라이브러리가 안정적으로 동작하며, 팀 전체가 동일한 개발
+              환경에서 작업 가능
             </div>
           </div>
         </div>

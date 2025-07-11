@@ -2,7 +2,7 @@ import React from 'react';
 
 const LeadingSection: React.FC = () => {
   return (
-    <section className='bg-white rounded-2xl p-10 shadow-md border border-slate-200'>
+    <section className='leading-section force-page-break bg-white rounded-2xl p-10 shadow-md border border-slate-200'>
       <div className='mb-8'>
         <h2 className='text-4xl font-bold text-indigo-600 mb-2 flex items-center gap-3'>
           👥 팀 리더십 & 기술 멘토링

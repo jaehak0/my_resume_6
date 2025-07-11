@@ -2,7 +2,7 @@ import React from 'react';
 
 const ContactSection: React.FC = () => {
   return (
-    <section className='bg-white rounded-2xl p-10 shadow-md border border-slate-200'>
+    <section className='contact bg-white rounded-2xl p-10 shadow-md border border-slate-200'>
       <div className='text-center mb-8'>
         <h2 className='text-4xl font-bold text-indigo-600 mb-2 flex items-center justify-center gap-3'>
           🚀 함께 일해요!

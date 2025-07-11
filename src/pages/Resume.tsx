@@ -4,7 +4,7 @@ import '@styles/resume.css';
 import HeroSection from '@components/sectiions/HeroSection.tsx';
 import Sidebar from '@components/Sidebar.tsx';
 import ProjectSection from '@components/sectiions/ProjectSection.tsx';
-import TrobleShootingSection from '@components/sectiions/TrobleShootingSection.tsx';
+import TrobleShootingSection from '@components/sectiions/TroubleShootingSection.tsx';
 import LeadingSection from '@components/sectiions/LeadingSection.tsx';
 import EducationSection from '@components/sectiions/EducationSection.tsx';
 // import JobObjectiveSection from '@components/sectiions/JobObjectiveSection.tsx';
@@ -12,7 +12,7 @@ import Navigation from '@components/Navigation.tsx';
 // import { usePDFExport } from '@shared/utils/selectivePdfFix.ts';
 // import { usePDFExport } from '@shared/utils/exportPdf.ts';
 // import { usePDFExport } from '@shared/utils/browserPrint.ts';
-import { usePDFExport } from '@shared/utils/alternativePdfMethods.tsx';
+import { usePDFExport } from '@shared/utils/alternativePdfMethods.ts';
 
 const Resume: React.FC = () => {
   const { exportPDF } = usePDFExport();
@@ -37,14 +37,14 @@ const Resume: React.FC = () => {
           <div className='content-grid'>
             {/* Sidebar */}
             <Sidebar />
-            <div className='pdf-only h-[340px] hidden' ></div>
+            {/*<div className='pdf-only h-[340px] hidden' ></div>*/}
             {/* Main Content */}
             <main className='flex flex-col gap-12'>
               {/* Projects Section */}
               <ProjectSection />
               {/*// Part 3: 기술적 문제해결 경험 + 팀 리더십 + 현재 진행사항 // TSX에 추가할 부분*/}
               {/* 기술적 문제해결 경험 섹션 */}
-              <div className='pdf-only  h-[280px]' />
+              {/*<div className='pdf-only  h-[280px]' />*/}
               <TrobleShootingSection />
               {/* 팀 리더십 & 기술 멘토링 섹션 */}
               <LeadingSection />

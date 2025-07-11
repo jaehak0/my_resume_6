@@ -10,7 +10,7 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className='hero'>
+    <section className='hero force-page-break'>
       <div className='hero-content'>
         <div className='text-white'>
           <span className='hero-badge mb-4 lg:hidden mobile-only'>🚀 Ready to Innovate</span>

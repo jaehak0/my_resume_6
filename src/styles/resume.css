@@ -177,7 +177,7 @@ html, body {
 }
 
 .project-details {
-	@apply bg-slate-50 p-4 rounded-lg my-4 text-sm leading-relaxed;
+	@apply bg-slate-50 px-4 py-2 my-4 text-sm leading-relaxed;
 }
 
 .metric-card {

@@ -2,7 +2,10 @@ import React from 'react';
 
 const EducationSection: React.FC = () => {
   return (
-    <section className='bg-white rounded-2xl p-10 shadow-md border border-slate-200' id='education'>
+    <section
+      className='education-section force-page-break bg-white rounded-2xl p-10 shadow-md border border-slate-200'
+      id='education'
+    >
       <div className='mb-8'>
         <h2 className='text-4xl font-bold text-indigo-600 mb-2 flex items-center gap-3'>
           📚 교육 배경
