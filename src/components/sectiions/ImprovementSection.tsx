@@ -15,14 +15,14 @@ const ImprovementSection: React.FC = () => {
       <div className='space-y-8'>
         <div className='project-card'>
           <div className='bg-white p-8 border-b border-slate-200 relative'>
-            <span className='absolute top-4 right-4 bg-amber-500 text-white px-3 py-2 rounded-xl text-sm font-semibold'>
+            <span className='absolute top-4 right-4 amber-text-box px-3 py-2  font-semibold'>
               Accuracy Improvement
             </span>
             <h3 className='text-2xl font-bold text-indigo-600 mb-2'>신용평가 정확도 향상</h3>
             <p className='text-slate-600'>룰베이스 검증 + GPT 필터링으로 이상 결과 방지</p>
           </div>
           <div className='p-8'>
-            <div className='bg-amber-500 text-white p-4 rounded-lg mb-4 text-sm leading-relaxed'>
+            <div className='amber-text-box-soft p-4 mb-4'>
               <strong>발견된 문제:</strong> 자본잠식 기업임에도 A+ 등급이 나오는 이상사태 발생
             </div>
 
@@ -41,7 +41,7 @@ const ImprovementSection: React.FC = () => {
 
         <div className='project-card'>
           <div className='bg-white p-8 border-b border-slate-200 relative'>
-            <span className='absolute top-4 right-4 bg-amber-500 text-white px-3 py-2 rounded-xl text-sm font-semibold'>
+            <span className='absolute top-4 right-4 amber-text-box px-3 py-2 font-semibold'>
               System Optimization
             </span>
             <h3 className='text-2xl font-bold text-indigo-600 mb-2'>시스템 최적화</h3>

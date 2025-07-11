@@ -15,7 +15,7 @@ const ProjectSection: React.FC = () => {
       <div className='space-y-8'>
         <div className='project-card'>
           <div className='bg-white p-8 border-b border-slate-200 relative'>
-            <span className='absolute top-4 right-4 bg-amber-500 text-white px-3 py-2 rounded-xl text-sm font-semibold'>
+            <span className='absolute top-4 right-4 amber-text-box px-3 py-2 font-semibold'>
               Lead AI Developer
             </span>
             <h3 className='text-2xl font-bold text-indigo-600 mb-2'>SheetAI</h3>
@@ -117,7 +117,7 @@ const ProjectSection: React.FC = () => {
         {/* Nutrimate 프로젝트 */}
         <div className='project-card'>
           <div className='bg-white p-8 border-b border-slate-200 relative'>
-            <span className='absolute top-4 right-4 bg-amber-500 text-white px-3 py-2 rounded-xl text-sm font-semibold'>
+            <span className='absolute top-4 right-4 amber-text-box px-3 py-2 font-semibold'>
               Team leader
             </span>
             <h3 className='text-2xl font-bold text-indigo-600 mb-2'>Nutrimate</h3>
@@ -230,7 +230,7 @@ const ProjectSection: React.FC = () => {
         {/* 여권의 정석 프로젝트 */}
         <div className='project-card'>
           <div className='bg-white p-8 border-b border-slate-200 relative'>
-            <span className='absolute top-4 right-4 bg-amber-500 text-white px-3 py-2 rounded-xl text-sm font-semibold'>
+            <span className='absolute top-4 right-4 amber-text-box px-3 py-2 font-semibold'>
               Frontend & AI Integration
             </span>
             <h3 className='text-2xl font-bold text-indigo-600 mb-2'>여권의 정석</h3>
@@ -342,7 +342,7 @@ const ProjectSection: React.FC = () => {
           <div className='space-y-8'>
             <div className='project-card'>
               <div className='bg-white p-8 border-b border-slate-200 relative'>
-                <span className='absolute top-4 right-4 bg-amber-500 text-white px-3 py-2 rounded-xl text-sm font-semibold'>
+                <span className='absolute top-4 right-4 amber-text-box px-3 py-2 font-semibold'>
                   AI/ML
                 </span>
                 <h3 className='text-2xl font-bold text-indigo-600 mb-2'>AI/Machine Learning</h3>
@@ -381,7 +381,7 @@ const ProjectSection: React.FC = () => {
 
             <div className='project-card'>
               <div className='bg-white p-8 border-b border-slate-200 relative'>
-                <span className='absolute top-4 right-4 bg-amber-500 text-white px-3 py-2 rounded-xl text-sm font-semibold'>
+                <span className='absolute top-4 right-4 amber-text-box px-3 py-2 font-semibold'>
                   Backend
                 </span>
                 <h3 className='text-2xl font-bold text-indigo-600 mb-2'>Backend Development</h3>
@@ -457,7 +457,7 @@ const ProjectSection: React.FC = () => {
 
             <div className='project-card'>
               <div className='bg-white p-8 border-b border-slate-200 relative'>
-                <span className='absolute top-4 right-4 bg-amber-500 text-white px-3 py-2 rounded-xl text-sm font-semibold'>
+                <span className='absolute top-4 right-4 amber-text-boxpx-3 py-2 font-semibold'>
                   Data Science
                 </span>
                 <h3 className='text-2xl font-bold text-indigo-600 mb-2'>

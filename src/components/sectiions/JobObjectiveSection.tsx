@@ -15,7 +15,7 @@ const JobObjectiveSection: React.FC = () => {
       <div className='space-y-8'>
         <div className='project-card'>
           <div className='bg-white p-8 border-b border-slate-200 relative'>
-            <span className='absolute top-4 right-4 bg-amber-500 text-white px-3 py-2 rounded-xl text-sm font-semibold'>
+            <span className='absolute top-4 right-4 amber-text-box px-3 py-2 font-semibold'>
               1순위
             </span>
             <h3 className='text-2xl font-bold text-indigo-600 mb-2'>AI Engineer</h3>
@@ -44,7 +44,7 @@ const JobObjectiveSection: React.FC = () => {
 
         <div className='project-card'>
           <div className='bg-white p-8 border-b border-slate-200 relative'>
-            <span className='absolute top-4 right-4 bg-amber-500 text-white px-3 py-2 rounded-xl text-sm font-semibold'>
+            <span className='absolute top-4 right-4 amber-text-box px-3 py-2 font-semibold'>
               2순위
             </span>
             <h3 className='text-2xl font-bold text-indigo-600 mb-2'>Frontend Developer</h3>
@@ -70,7 +70,7 @@ const JobObjectiveSection: React.FC = () => {
 
         <div className='project-card'>
           <div className='bg-white p-8 border-b border-slate-200 relative'>
-            <span className='absolute top-4 right-4 bg-amber-500 text-white px-3 py-2 rounded-xl text-sm font-semibold'>
+            <span className='absolute top-4 right-4 amber-text-box px-3 py-2 font-semibold'>
               3순위
             </span>
             <h3 className='text-2xl font-bold text-indigo-600 mb-2'>Backend Developer</h3>

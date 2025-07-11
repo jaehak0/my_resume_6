@@ -15,7 +15,7 @@ const LeadingSection: React.FC = () => {
       <div className='space-y-8'>
         <div className='project-card'>
           <div className='bg-white p-8 border-b border-slate-200 relative'>
-            <span className='absolute top-4 right-4 bg-amber-500 text-white px-3 py-2 rounded-xl text-sm font-semibold'>
+            <span className='absolute top-4 right-4 amber-text-box font-semibold px-3 py-2'>
               Technical Study
             </span>
             <h3 className='text-2xl font-bold text-indigo-600 mb-2'>기술 지식 공유 및 팀 협업</h3>
@@ -35,7 +35,7 @@ const LeadingSection: React.FC = () => {
               <br />• 이론과 실습을 결합한 실무 중심 교육
             </div>
 
-            <div className='bg-green-500 text-white p-4 rounded-lg text-sm leading-relaxed'>
+            <div className='emerald-text-box-soft text-white p-4 rounded-lg text-sm leading-relaxed'>
               <strong>성과:</strong> 팀 전체의 AI 기술 이해도 대폭 향상 및 프로젝트 성공률 증가
             </div>
           </div>
@@ -43,7 +43,7 @@ const LeadingSection: React.FC = () => {
 
         <div className='project-card'>
           <div className='bg-white p-8 border-b border-slate-200 relative'>
-            <span className='absolute top-4 right-4 bg-amber-500 text-white px-3 py-2 rounded-xl text-sm font-semibold'>
+            <span className='absolute top-4 right-4 amber-text-box font-semibold px-3 py-2 '>
               Code Review & Git Strategy
             </span>
             <h3 className='text-2xl font-bold text-indigo-600 mb-2'>코드 리뷰 및 협업 환경 구축</h3>
@@ -63,7 +63,7 @@ const LeadingSection: React.FC = () => {
               <br />• 팀원들 간의 소통 비용 절감 및 개발 속도 향상
             </div>
 
-            <div className='bg-green-500 text-white p-4 rounded-lg text-sm leading-relaxed'>
+            <div className='emerald-text-box-soft p-4 leading-relaxed'>
               <strong>결과:</strong> 코드 품질 향상 및 팀 협업 효율성 대폭 개선
             </div>
           </div>

@@ -540,3 +540,26 @@ img.loaded {
 	/* PDF 생성 시만 적용된 스타일 */
 	display: none !important;
 }
+
+.rose-text-box-soft{
+	@apply bg-rose-100 text-rose-900 border border-rose-300 rounded-xl text-sm leading-relaxed;
+}
+
+.amber-text-box{
+	@apply bg-amber-500 text-white rounded-xl text-sm leading-relaxed;
+}
+.amber-text-box-soft{
+	@apply bg-amber-100 text-amber-900 border border-amber-300 rounded-xl text-sm leading-relaxed;
+}
+
+.blue-text-box{
+	@apply bg-blue-500 text-white rounded-xl text-sm leading-relaxed;
+}
+
+.green-text-box{
+	@apply bg-green-500 text-white rounded-xl text-sm leading-relaxed;
+}
+
+.emerald-text-box-soft{
+	@apply bg-emerald-100 text-emerald-900 border border-emerald-300 rounded-xl text-sm leading-relaxed;
+}
