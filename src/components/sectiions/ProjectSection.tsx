@@ -13,6 +13,7 @@ const ProjectSection: React.FC = () => {
       </div>
 
       <div className='space-y-8'>
+        {/* SheetAI 프로젝트 */}
         <div className='project-card'>
           <div className='bg-white p-8 border-b border-slate-200 relative'>
             <span className='absolute top-4 right-4 amber-text-box px-3 py-2 font-semibold'>
@@ -23,7 +24,7 @@ const ProjectSection: React.FC = () => {
             <div className='flex gap-6 text-slate-500 text-sm flex-wrap'>
               <span>📅 2025.05 - 2025.07 (7주 집중 개발)</span>
               <span>👥 6명 팀</span>
-              <span>⭐ 프로덕션 완료 (배포 준비 중)</span>
+              <span>⭐ 프로덕션 시스템 구축 완료</span>
             </div>
           </div>
           <div className='p-8'>
@@ -67,6 +68,14 @@ const ProjectSection: React.FC = () => {
               <br />• RunPod GPU 클러스터에 파인튜닝된 LLM 배포
             </div>
 
+            <div className='project-details'>
+              <strong>🔧 추가 구현 사항:</strong>
+              <br />
+              • 신용평가 정확도 개선: 자본잠식 기업 A+ 문제 해결을 위한 룰베이스 검증 + Agent 기반 2차 검증 시스템 구축
+              <br />
+              • 실시간 피드백: Server-Sent Events (SSE) 기반 사용자 피드백 시스템 구현
+            </div>
+
             <div className='grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8'>
               <div className='metric-card'>
                 <span className='metric-value'>92%</span>
@@ -99,10 +108,9 @@ const ProjectSection: React.FC = () => {
                 'MySQL',
                 'H2',
                 'jsPDF',
-                'html2Canvas',
-                'Jotai',
-                'Tanstack Query',
-                'Vite',
+                'SSE',
+                'WandB',
+                'OpenDART API'
               ].map(tech => (
                 <span key={tech} className='tech-item'>
                   {tech}
@@ -111,14 +119,12 @@ const ProjectSection: React.FC = () => {
             </div>
           </div>
         </div>
-        {/*<div className='pdf-only  h-[95px]' />*/}
-        {/* 다른 프로젝트들도 동일한 구조로 추0가 */}
-        {/*// Part 2: 나머지 프로젝트들 + 기술 스킬 섹션 // TSX에 추가할 부분*/}
+
         {/* Nutrimate 프로젝트 */}
         <div className='project-card'>
           <div className='bg-white p-8 border-b border-slate-200 relative'>
             <span className='absolute top-4 right-4 amber-text-box px-3 py-2 font-semibold'>
-              Team leader
+              Team Leader
             </span>
             <h3 className='text-2xl font-bold text-indigo-600 mb-2'>Nutrimate</h3>
             <p className='text-slate-600 mb-4'>건강관리 보조 서비스</p>
@@ -130,16 +136,14 @@ const ProjectSection: React.FC = () => {
           </div>
           <div className='p-8'>
             <p className='text-slate-600 leading-relaxed mb-8'>
-              사용자의 일일 식단을 기록하고 칼로리, 탄수화물, 단백질, 지방 등 영양소를 분석하여
-              건강관리를 도와주는 종합 서비스입니다. 팀장으로서 프로젝트 관리 및 의사결정, Backend
-              총괄, Frontend 총괄, DB 관리, Jira 관리, Git 총괄을 모두 담당했습니다.
+              사용자의 일일 식단을 기록하고 칼로리, 탄수화물, 단백질, 지방 등 영양소를 분석하여 건강관리를 도와주는 종합 서비스입니다.
+              팀장으로서 프로젝트 관리 및 의사결정, Backend 총괄, Frontend 총괄, DB 관리, Jira 관리, Git 총괄을 모두 담당했습니다.
             </p>
 
             <div className='project-details'>
               <strong>👥 팀 리더십 (팀장):</strong>
               <br />
-              • 기획 단계 의견 조율: 팀원들의 서로 다른 이해도를 통일하기 위해 화면설계, 기능상세서
-              작성
+              • 기획 단계 의견 조율: 팀원들의 서로 다른 이해도를 통일하기 위해 화면설계, 기능상세서 작성
               <br />
               • 품질 관리: 팀원들의 버그 수정 요청 조율 및 우선순위 결정
               <br />• Jira 관리: 이슈 트래킹 및 작업 할당을 통한 프로젝트 진행 관리
@@ -148,16 +152,12 @@ const ProjectSection: React.FC = () => {
             <div className='project-details'>
               <strong>💻 Backend 개발 총괄:</strong>
               <br />
-              • Spring Boot + Gradle 환경 초기 세팅: vite.config.js, .eslint.cjs, .prettier 등
-              개발환경 구성 (5-6시간 소요)
+              • Spring Boot + Gradle 환경에서 log4jdbc 로깅 시스템 구축
               <br />
-              • log4jdbc 로깅 시스템 구축: Jakarta 버전, JDBC 버전 호환성 문제 해결을 위한
-              라이브러리 의존성 관리
+              • Jakarta 버전, JDBC 버전 호환성 문제 해결을 위한 라이브러리 의존성 관리
               <br />
-              • OAuth 인증 시스템: Google, Facebook OAuth 구현 (Facebook 데시보드 이메일 권한 설정
-              등 복잡한 이슈 해결)
-              <br />• 280줄 규모의 복잡한 SQL 쿼리 작성: 사용자 식단 기록의 칼로리, 영양소 데이터
-              종합 분석
+              • OAuth 인증 시스템: Google, Facebook OAuth 구현 (Facebook 데시보드 이메일 권한 설정 등 복잡한 이슈 해결)
+              <br />• 280줄 규모의 복잡한 SQL 쿼리 작성: 사용자 식단 기록의 칼로리, 영양소 데이터 종합 분석
             </div>
 
             <div className='project-details'>
@@ -166,10 +166,7 @@ const ProjectSection: React.FC = () => {
               • 무한 대댓글 시스템: 재귀함수를 활용한 무한 depth 댓글 구조 구현
               <br />
               • 애니메이션 메뉴 Drawer: 부드러운 애니메이션이 포함된 네비게이션 구현
-              <br />
-              • 커스텀 캘린더: 적합한 라이브러리 선정부터 프로젝트 요구사항에 맞는 커스터마이징까지
-              전담
-              <br />• dayjs, moment 등 라이브러리 중복 사용 이슈 관리 및 의존성 최적화
+              <br />• 커스텀 캘린더: 라이브러리 기반 캘린더를 프로젝트 요구사항에 맞게 커스터마이징
             </div>
 
             <div className='project-details'>
@@ -213,11 +210,10 @@ const ProjectSection: React.FC = () => {
                 'MyBatis',
                 'log4jdbc',
                 'JWT',
-                'Jotai',
-                'Tanstack Query',
+                'Recoil',
                 'Vite',
                 'Jira',
-                'Git',
+                'Git'
               ].map(tech => (
                 <span key={tech} className='tech-item'>
                   {tech}
@@ -226,7 +222,7 @@ const ProjectSection: React.FC = () => {
             </div>
           </div>
         </div>
-        {/*<div className='pdf-only  h-[140px]' />*/}
+
         {/* 여권의 정석 프로젝트 */}
         <div className='project-card'>
           <div className='bg-white p-8 border-b border-slate-200 relative'>
@@ -243,10 +239,8 @@ const ProjectSection: React.FC = () => {
           </div>
           <div className='p-8'>
             <p className='text-slate-600 leading-relaxed mb-8'>
-              여권사진 규정 준수를 위한 AI 기반 자동 분석 서비스입니다. 1주라는 짧은 기간 동안
-              팀원이 개발한 얼굴 분석 AI 모델을 사용자가 쉽게 이용할 수 있는 웹 인터페이스로
-              구현하고, 6개 배경제거 모델을 직접 비교 실험하여 2개 최적 모델을 선정 및 통합한 종합
-              여권사진 서비스를 구축했습니다.
+              여권사진 규정 준수를 위한 AI 기반 자동 분석 서비스입니다. 1주라는 짧은 기간 동안 팀원이 개발한 얼굴 분석 AI 모델을 사용자가 쉽게 이용할
+              수 있는 웹 인터페이스로 구현하고, 6개 배경제거 모델을 직접 비교 실험하여 2개 최적 모델을 선정 및 통합한 종합 여권사진 서비스를 구축했습니다.
             </p>
 
             <div className='project-details'>
@@ -314,11 +308,7 @@ const ProjectSection: React.FC = () => {
                 'FastAPI',
                 'Python',
                 'Pillow',
-                'HuggingFace',
-                'tailwindcss',
-                'Vite',
-                'Jotai',
-                'Tanstack Query',
+                'HuggingFace'
               ].map(tech => (
                 <span key={tech} className='tech-item'>
                   {tech}
@@ -327,7 +317,7 @@ const ProjectSection: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className='pdf-only  h-[230px]' />
+
         {/* 기술 스킬 섹션 */}
         <section className='bg-white rounded-2xl p-10 shadow-md border border-slate-200'>
           <div className='mb-8'>
@@ -339,20 +329,18 @@ const ProjectSection: React.FC = () => {
             </p>
           </div>
 
-          <div className='space-y-8'>
+          <div className='flex flex-col gap-8'>
             <div className='project-card'>
               <div className='bg-white p-8 border-b border-slate-200 relative'>
-                <span className='absolute top-4 right-4 amber-text-box px-3 py-2 font-semibold'>
-                  AI/ML
-                </span>
-                <h3 className='text-2xl font-bold text-indigo-600 mb-2'>AI/Machine Learning</h3>
+                <h3 className='text-2xl font-bold text-indigo-600 mb-2'>
+                  AI/Machine Learning
+                </h3>
                 <p className='text-slate-600'>LLM 파인튜닝부터 Computer Vision까지</p>
               </div>
               <div className='p-8'>
                 <div className='project-details mb-6'>
                   <strong>핵심 경험:</strong>
-                  <br />• <strong>LLM 파인튜닝:</strong> LoRA 기법으로 LLaMA 3.2 3B 모델 파인튜닝,
-                  92% 정확도 달성
+                  <br />• <strong>LLM 파인튜닝:</strong> LoRA 기법으로 LLaMA 3.2 3B 모델 파인튜닝, 92% 정확도 달성
                   <br />• <strong>Multi-Agent 시스템:</strong> LangGraph로 복잡한 워크플로우 구현
                   <br />• <strong>Computer Vision:</strong> 6개 배경제거 모델 비교 실험 및 최적화
                   <br />• <strong>MLOps:</strong> WandB로 100+ 실험 추적, RunPod GPU 클러스터 배포
@@ -360,16 +348,17 @@ const ProjectSection: React.FC = () => {
 
                 <div className='flex flex-wrap gap-2'>
                   {[
-                    'LLaMA 3.2',
+                    'LLaMA',
+                    'Gemma',
+                    'Phi',
+                    'Unsloth',
                     'LoRA Fine-tuning',
                     'LangGraph',
-                    'MediaPipe',
-                    'DeepFace',
                     'MODNet',
                     'RMBG-1.4',
                     'YOLOv8',
                     'WandB',
-                    'RunPod',
+                    'RunPod'
                   ].map(tech => (
                     <span key={tech} className='tech-item'>
                       {tech}
@@ -381,33 +370,31 @@ const ProjectSection: React.FC = () => {
 
             <div className='project-card'>
               <div className='bg-white p-8 border-b border-slate-200 relative'>
-                <span className='absolute top-4 right-4 amber-text-box px-3 py-2 font-semibold'>
-                  Backend
-                </span>
-                <h3 className='text-2xl font-bold text-indigo-600 mb-2'>Backend Development</h3>
+                <h3 className='text-2xl font-bold text-indigo-600 mb-2'>
+                  Backend Development
+                </h3>
                 <p className='text-slate-600'>API 서버부터 데이터베이스까지</p>
               </div>
               <div className='p-8'>
                 <div className='project-details mb-6'>
                   <strong>핵심 경험:</strong>
-                  <br />• <strong>AI 서버:</strong> FastAPI로 LLM 서빙 및 Multi-Agent 시스템 구축
-                  <br />• <strong>웹 서비스:</strong> Spring Boot 기반 Full-Stack 애플리케이션 개발
-                  <br />• <strong>Database:</strong> MySQL, Oracle DB 설계 및 복잡한 SQL 쿼리 작성
-                  <br />• <strong>인증/보안:</strong> OAuth, JWT 구현 및 보안 시스템 구축
+                  <br />• <strong>AI 서버:</strong> FastAPI로 LLM 서비스 API 구축 및 SSE 실시간 통신
+                  <br />• <strong>웹 서버:</strong> Spring Boot 기반 확장 가능한 아키텍처 설계
+                  <br />• <strong>인증:</strong> OAuth (Google, Facebook), JWT 토큰 기반 보안
+                  <br />• <strong>데이터베이스:</strong> MySQL + H2 Failover 시스템
                 </div>
 
                 <div className='flex flex-wrap gap-2'>
                   {[
                     'FastAPI',
                     'Spring Boot',
-                    'Flask',
                     'MySQL',
+                    'Oracle',
                     'H2',
-                    'Oracle DB',
-                    'ChromaDB',
                     'OAuth',
                     'JWT',
-                    'OpenDART API',
+                    'SSE',
+                    'MyBatis'
                   ].map(tech => (
                     <span key={tech} className='tech-item'>
                       {tech}
@@ -419,33 +406,31 @@ const ProjectSection: React.FC = () => {
 
             <div className='project-card'>
               <div className='bg-white p-8 border-b border-slate-200 relative'>
-                <span className='absolute top-4 right-4 bg-amber-500 text-white px-3 py-2 rounded-xl text-sm font-semibold'>
-                  Frontend
-                </span>
-                <h3 className='text-2xl font-bold text-indigo-600 mb-2'>Frontend Development</h3>
-                <p className='text-slate-600'>React 기반 모던 웹 애플리케이션</p>
+                <h3 className='text-2xl font-bold text-indigo-600 mb-2'>
+                  Frontend Development
+                </h3>
+                <p className='text-slate-600'>React 기반 사용자 인터페이스</p>
               </div>
               <div className='p-8'>
                 <div className='project-details mb-6'>
                   <strong>핵심 경험:</strong>
-                  <br />• <strong>React SPA:</strong> TypeScript 기반 현대적 웹 애플리케이션 개발
-                  <br />• <strong>상태 관리:</strong> Jotai, TanStack Query로 복잡한 상태 관리
-                  <br />• <strong>복잡한 UI:</strong> 무한 댓글, 애니메이션 메뉴, 커스텀 캘린더 구현
-                  <br />• <strong>AI 연동:</strong> AI 모델과의 실시간 연동 및 결과 시각화
+                  <br />• <strong>React 생태계:</strong> React, TypeScript, Next.js로 SPA/SSR 구현
+                  <br />• <strong>상태 관리:</strong> Jotai, TanStack Query, Recoil 실무 활용
+                  <br />• <strong>스타일링:</strong> Tailwind CSS, Styled-Components, Material-UI
+                  <br />• <strong>빌드 도구:</strong> Vite 기반 최신 개발 환경 구축
                 </div>
 
                 <div className='flex flex-wrap gap-2'>
                   {[
                     'React',
                     'TypeScript',
-                    'JavaScript',
-                    'Vite',
+                    'Next.js',
                     'Tailwind CSS',
                     'Jotai',
                     'TanStack Query',
-                    'Material-UI',
-                    'jsPDF',
-                    'html2Canvas',
+                    'Vite',
+                    'Styled-Components',
+                    'Material-UI'
                   ].map(tech => (
                     <span key={tech} className='tech-item'>
                       {tech}
@@ -457,9 +442,6 @@ const ProjectSection: React.FC = () => {
 
             <div className='project-card'>
               <div className='bg-white p-8 border-b border-slate-200 relative'>
-                <span className='absolute top-4 right-4 amber-text-boxpx-3 py-2 font-semibold'>
-                  Data Science
-                </span>
                 <h3 className='text-2xl font-bold text-indigo-600 mb-2'>
                   Data Science & Analytics
                 </h3>
@@ -468,10 +450,8 @@ const ProjectSection: React.FC = () => {
               <div className='p-8'>
                 <div className='project-details mb-6'>
                   <strong>핵심 경험:</strong>
-                  <br />• <strong>고급 통계:</strong> 다변량 절단정규분포 기법으로 고품질 합성데이터
-                  생성
-                  <br />• <strong>데이터 검증:</strong> t-SNE 시각화로 원본 데이터와 95% 분포 일치도
-                  확인
+                  <br />• <strong>고급 통계:</strong> 다변량 절단정규분포 기법으로 고품질 합성데이터 생성
+                  <br />• <strong>데이터 검증:</strong> t-SNE 시각화로 원본 데이터와 95% 분포 일치도 확인
                   <br />• <strong>데이터 처리:</strong> 대용량 재무데이터 전처리 및 정규화
                   <br />• <strong>시각화:</strong> 복잡한 데이터를 직관적인 그래프로 변환
                 </div>
@@ -484,7 +464,7 @@ const ProjectSection: React.FC = () => {
                     't-SNE',
                     '다변량 절단정규분포',
                     'Matplotlib',
-                    'Seaborn',
+                    'Seaborn'
                   ].map(tech => (
                     <span key={tech} className='tech-item'>
                       {tech}

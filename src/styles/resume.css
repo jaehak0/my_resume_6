@@ -31,6 +31,7 @@ html, body {
 	animation: float 20s infinite ease-in-out;
 }
 
+
 @keyframes float {
 	0%, 100% {
 		transform: translateY(0px) rotate(0deg);

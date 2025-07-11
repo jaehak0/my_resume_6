@@ -15,9 +15,6 @@ const LeadingSection: React.FC = () => {
       <div className='space-y-8'>
         <div className='project-card'>
           <div className='bg-white p-8 border-b border-slate-200 relative'>
-            <span className='absolute top-4 right-4 amber-text-box font-semibold px-3 py-2'>
-              Technical Study
-            </span>
             <h3 className='text-2xl font-bold text-indigo-600 mb-2'>기술 지식 공유 및 팀 협업</h3>
             <p className='text-slate-600'>
               주간 기술 스터디 진행 및 복잡한 개념의 이해하기 쉬운 설명
@@ -43,9 +40,6 @@ const LeadingSection: React.FC = () => {
 
         <div className='project-card'>
           <div className='bg-white p-8 border-b border-slate-200 relative'>
-            <span className='absolute top-4 right-4 amber-text-box font-semibold px-3 py-2 '>
-              Code Review & Git Strategy
-            </span>
             <h3 className='text-2xl font-bold text-indigo-600 mb-2'>코드 리뷰 및 협업 환경 구축</h3>
             <p className='text-slate-600'>
               건설적인 코드 리뷰와 Git 전략 수립으로 팀 개발 품질 향상

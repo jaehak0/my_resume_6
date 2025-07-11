@@ -6,7 +6,6 @@ import Sidebar from '@components/Sidebar.tsx';
 import ProjectSection from '@components/sectiions/ProjectSection.tsx';
 import TrobleShootingSection from '@components/sectiions/TrobleShootingSection.tsx';
 import LeadingSection from '@components/sectiions/LeadingSection.tsx';
-import ImprovementSection from '@components/sectiions/ImprovementSection.tsx';
 import EducationSection from '@components/sectiions/EducationSection.tsx';
 // import JobObjectiveSection from '@components/sectiions/JobObjectiveSection.tsx';
 import Navigation from '@components/Navigation.tsx';
@@ -17,7 +16,7 @@ import { usePDFExport } from '@shared/utils/alternativePdfMethods.tsx';
 
 const Resume: React.FC = () => {
   const { exportPDF } = usePDFExport();
-  const handlePrint = () => exportPDF('browser');
+  const handlePrint = () => exportPDF();
 
   return (
     <div className='font-noto bg-white text-slate-800 overflow-x-hidden'>
@@ -50,7 +49,7 @@ const Resume: React.FC = () => {
               {/* 팀 리더십 & 기술 멘토링 섹션 */}
               <LeadingSection />
               {/* 현재 진행 중인 개선사항 섹션 */}
-              <ImprovementSection />
+              {/*<ImprovementSection />*/}
               {/*// Part 4: 교육 배경 + 희망 포지션 + CTA // TSX에 추가할 부분*/}
               {/* 교육 배경 섹션 */}
               <EducationSection />
