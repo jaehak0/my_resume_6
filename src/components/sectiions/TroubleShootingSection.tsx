@@ -118,7 +118,7 @@ const TroubleShooting: React.FC = () => {
         <div className='project-card'>
           <div className='bg-white p-8 border-b border-slate-200 relative'>
             <h3 className='text-2xl font-bold text-indigo-600 mb-2'>Database Failover 시스템</h3>
-            <p className='text-slate-600'>MySQL 장애 시 H2 자동 전환으로 개발 안정성 확보</p>
+            <p className='text-slate-600'>AWS RDS MySQL과 H2 인메모리 DB 간 자동 전환 시스템</p>
           </div>
           <div className='p-8'>
             <div className='amber-text-box-soft p-4 mb-4'>
@@ -135,11 +135,46 @@ const TroubleShooting: React.FC = () => {
               • MySQL 연결 실패 시 자동 H2 전환 메커니즘
               <br />
               • H2 인메모리 DB 백업 시스템 구성
-              <br />• Spring Boot 환경에서 동적 DataSource 전환
+              <br />• 개발 환경 편의성과 비용 효율성 동시 확보
             </div>
 
             <div className='emerald-text-box-soft p-4 leading-relaxed'>
               <strong>결과:</strong> 무중단 개발 환경 구축으로 팀 생산성 향상 및 비용 절감 효과
+            </div>
+          </div>
+        </div>
+
+        <div className='project-card'>
+          <div className='bg-white p-8 border-b border-slate-200 relative'>
+            <h3 className='text-2xl font-bold text-indigo-600 mb-2'>
+              PDF 보고서 생성 시 Tailwind CSS 호환성 문제 해결
+            </h3>
+            <p className='text-slate-600'>
+              신용평가 보고서의 PDF 변환 시 최신 CSS 기능 호환성 문제 해결
+            </p>
+          </div>
+          <div className='p-8'>
+            <div className='rose-text-box-soft p-4 mb-4 leading-relaxed'>
+              <strong>문제:</strong> 신용평가 보고서의 PDF 변환 시 Tailwind CSS v4 색상 시스템과
+              html2canvas 충돌
+              <br />
+              <strong>원인:</strong> Tailwind v4의 oklch() 색상 함수가 html2canvas에서 렌더링되지
+              않음
+            </div>
+
+            <div className='project-details'>
+              <strong>해결 과정:</strong>
+              <br />
+              • 1단계: Tailwind CSS 색상 팔레트를 HEX 코드로 매핑하는 변환 테이블 작성
+              <br />
+              • 2단계: PDF 생성 시에만 임시로 스타일 오버라이드 시스템 구현
+              <br />
+              • 3단계: oklch(), lab(), lch() 등 최신 색상 함수를 안전한 HEX 값으로 강제 변환
+              <br />• 4단계: A4 비율 최적화 및 페이지 분할 로직으로 완전한 PDF 생성 시스템 구축
+            </div>
+
+            <div className='emerald-text-box-soft p-4 leading-relaxed'>
+              <strong>결과:</strong> 완벽한 PDF 보고서 생성 기능 완성
             </div>
           </div>
         </div>

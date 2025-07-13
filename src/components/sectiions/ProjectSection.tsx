@@ -97,7 +97,7 @@ const ProjectSection: React.FC = () => {
                 </div>
                 <div className='metric-card'>
                   <span className='metric-value'>3분</span>
-                  <span className='metric-label'>vs 기존 3시간</span>
+                  <span className='metric-label'>vs 기존 몇일</span>
                 </div>
               </div>
 
@@ -109,14 +109,13 @@ const ProjectSection: React.FC = () => {
                   'FastAPI',
                   'React SPA',
                   'Spring Boot',
-                  'ChromaDB',
+                  'Qdrant',
                   'RunPod GPU',
                   'MySQL',
                   'H2',
                   'jsPDF',
                   'SSE',
                   'WandB',
-                  'OpenDART API',
                 ].map(tech => (
                   <span key={tech} className='tech-item'>
                     {tech}
@@ -213,15 +212,15 @@ const ProjectSection: React.FC = () => {
                   'Spring Boot',
                   'React',
                   'Oracle DB',
-                  'OAuth (Google, Facebook)',
+                  'OAuth (Google, Facebook, Naver, Kakao)',
                   'Material-UI',
                   'Styled-Components',
-                  'Chart.js',
+                  'Rechart',
                   'Spring Security',
                   'MyBatis',
                   'log4jdbc',
                   'JWT',
-                  'Recoil',
+                  'Jotai',
                   'Vite',
                   'Jira',
                   'Git',
@@ -361,17 +360,18 @@ const ProjectSection: React.FC = () => {
 
               <div className='flex flex-wrap gap-2'>
                 {[
-                  'LLaMA',
-                  'Gemma',
-                  'Phi',
-                  'Unsloth',
+                  'LLaMA 3.2',
                   'LoRA Fine-tuning',
                   'LangGraph',
-                  'MODNet',
-                  'RMBG-1.4',
-                  'YOLOv8',
+                  'Unsloth',
+                  'HuggingFace',
                   'WandB',
                   'RunPod',
+                  'OpenAI',
+                  'Anthropic',
+                  'YOLOv8',
+                  'MediaPipe',
+                  'OpenCV',
                 ].map(tech => (
                   <span key={tech} className='tech-item'>
                     {tech}
@@ -391,7 +391,8 @@ const ProjectSection: React.FC = () => {
                 <strong>핵심 경험:</strong>
                 <br />• <strong>AI 서버:</strong> FastAPI로 LLM 서비스 API 구축 및 SSE 실시간 통신
                 <br />• <strong>웹 서버:</strong> Spring Boot 기반 확장 가능한 아키텍처 설계
-                <br />• <strong>인증:</strong> OAuth (Google, Facebook), JWT 토큰 기반 보안
+                <br />• <strong>인증:</strong> OAuth (Google, Facebook, Naver, Kakao), JWT 토큰 기반
+                보안
                 <br />• <strong>데이터베이스:</strong> MySQL + H2 Failover 시스템
               </div>
 
@@ -399,13 +400,16 @@ const ProjectSection: React.FC = () => {
                 {[
                   'FastAPI',
                   'Spring Boot',
+                  'Spring Security',
+                  'Spring Data JPA',
                   'MySQL',
-                  'Oracle',
-                  'H2',
+                  'ChromaDB',
+                  'QDrant',
                   'OAuth',
                   'JWT',
                   'SSE',
                   'MyBatis',
+                  'Gradle',
                 ].map(tech => (
                   <span key={tech} className='tech-item'>
                     {tech}
@@ -435,11 +439,14 @@ const ProjectSection: React.FC = () => {
                   'TypeScript',
                   'Next.js',
                   'Tailwind CSS',
+                  'Vite',
                   'Jotai',
                   'TanStack Query',
-                  'Vite',
-                  'Styled-Components',
+                  'React Router Dom',
+                  'Axios',
                   'Material-UI',
+                  'Recoil',
+                  'Recharts',
                 ].map(tech => (
                   <span key={tech} className='tech-item'>
                     {tech}

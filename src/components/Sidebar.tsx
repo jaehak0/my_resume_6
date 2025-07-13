@@ -1,12 +1,117 @@
 import React from 'react';
 
 const skillMapping: (skills: Array<string>) => React.ReactNode[] = (skills: Array<string>) => {
-  return skills.map((skill: any) => {
-    return <span className='skill-tag'>{skill}</span>;
+  return skills.map((skill: any, index: number) => {
+    return (
+      <span key={index} className='skill-tag'>
+        {skill}
+      </span>
+    );
   });
 };
 
 const Sidebar: React.FC = () => {
+  // AI/ML 스킬 리스트
+  const aiMlSkills = [
+    'LLaMA 3.2',
+    'LangGraph',
+    'LoRA',
+    'Unsloth',
+    'HuggingFace',
+    'Tavily',
+    'Anthropic',
+    'OpenAI',
+    'YOLOv8',
+    'WandB',
+    'RunPod',
+    'MediaPipe',
+    'OpenCV',
+    'DeepFace',
+  ];
+  const aiMlDesktop = aiMlSkills.slice(0, 4);
+  const aiMlRemainingCount = aiMlSkills.length - aiMlDesktop.length;
+
+  // Backend 스킬 리스트
+  const backendSkills = [
+    'FastAPI',
+    'Spring Boot',
+    'JWT',
+    'OAuth',
+    'Spring Security',
+    'Spring Data JPA',
+    'SSE',
+    'Pydantic',
+    'Selenium',
+    'H2',
+    'log4jdbc',
+    'MyBatis',
+    'Flask',
+    'Gradle',
+    'Oracle DB',
+    'MySQL',
+    'ChromaDB',
+    'QDrant',
+  ];
+  const backendDesktop = backendSkills.slice(0, 4);
+  const backendRemainingCount = backendSkills.length - backendDesktop.length;
+
+  // Frontend 스킬 리스트
+  const frontendSkills = [
+    'React',
+    'TypeScript',
+    'Tailwind',
+    'Vite',
+    'Jotai',
+    'TanStack Query',
+    'Axios',
+    'html2Canvas',
+    'jsPDF',
+    'Next.js',
+    'Material-UI',
+    'React Router Dom',
+    'Recoil',
+    'Prettier',
+    'Recharts',
+  ];
+  const frontendDesktop = frontendSkills.slice(0, 4);
+  const frontendRemainingCount = frontendSkills.length - frontendDesktop.length;
+
+  // Data 스킬 리스트
+  const dataSkills = [
+    'Python',
+    'NumPy',
+    'Pandas',
+    't-SNE',
+    'Matplotlib',
+    'Seaborn',
+    'Scikit-learn',
+  ];
+  const dataDesktop = dataSkills.slice(0, 4);
+  const dataRemainingCount = dataSkills.length - dataDesktop.length;
+
+  // DevOps & Tools 스킬 리스트
+  const devopsToolsSkills = [
+    'Git',
+    'GitHub',
+    'Notion',
+    'Jira',
+    'Docker',
+    'AWS',
+    'Vercel',
+    'Postman',
+    'IntelliJ',
+    'PyCharm',
+    'WebStorm',
+    'DataGrip',
+    'CursorAI',
+    'Windsurf',
+    'Jupyter Notebook',
+    'GitHub Desktop',
+    'Fork',
+  ];
+  const devopsToolsDesktop = devopsToolsSkills.slice(0, 4);
+  const devopsToolsRemainingCount = devopsToolsSkills.length - devopsToolsDesktop.length;
+
   return (
     <aside className='sidebar'>
       {/* Contact Info */}
@@ -38,105 +143,65 @@ const Sidebar: React.FC = () => {
           <h4 className='skill-category-title'>🤖 AI/ML</h4>
           {/* 데스크톱용 (축약버전) */}
           <div className='skill-items-desktop'>
-            {skillMapping(['LLaMA 3.2', 'LangGraph', 'LoRA', 'WandB'])}
-            <span className='text-xs text-slate-500 self-center ml-2'>외 5개</span>
+            {skillMapping(aiMlDesktop)}
+            <span className='text-xs text-slate-500 self-center ml-2'>
+              외 {aiMlRemainingCount}개
+            </span>
           </div>
           {/* 모바일/태블릿용 (전체버전) */}
-          <div className='skill-items-mobile'>
-            {skillMapping([
-              'LLaMA 3.2',
-              'LangGraph',
-              'LoRA',
-              'WandB',
-              'RunPod',
-              'MediaPipe',
-              'YOLOv8',
-              'OpenCV',
-              'DeepFace',
-            ])}
-          </div>
+          <div className='skill-items-mobile'>{skillMapping(aiMlSkills)}</div>
         </div>
 
         <div className='skill-category'>
           <h4 className='skill-category-title'>⚡ Backend</h4>
           {/* 데스크톱용 (축약버전) */}
           <div className='skill-items-desktop'>
-            {skillMapping(['FastAPI', 'Spring Boot', 'MySQL', 'ChromaDB'])}
-            <span className='text-xs text-slate-500 self-center ml-2'>외 6개</span>
+            {skillMapping(backendDesktop)}
+            <span className='text-xs text-slate-500 self-center ml-2'>
+              외 {backendRemainingCount}개
+            </span>
           </div>
           {/* 모바일/태블릿용 (전체버전) */}
-          <div className='skill-items-mobile'>
-            {skillMapping([
-              'FastAPI',
-              'Spring Boot',
-              'MySQL',
-              'ChromaDB',
-              'JWT',
-              'OAuth',
-              'H2',
-              'log4jdbc',
-              'MyBatis',
-              'Flask',
-            ])}
-          </div>
+          <div className='skill-items-mobile'>{skillMapping(backendSkills)}</div>
         </div>
 
         <div className='skill-category'>
           <h4 className='skill-category-title'>💻 Frontend</h4>
           {/* 데스크톱용 (축약버전) */}
           <div className='skill-items-desktop'>
-            {skillMapping(['React', 'TypeScript', 'Tailwind', 'Vite'])}
-            <span className='text-xs text-slate-500 self-center ml-2'>외 6개</span>
+            {skillMapping(frontendDesktop)}
+            <span className='text-xs text-slate-500 self-center ml-2'>
+              외 {frontendRemainingCount}개
+            </span>
           </div>
           {/* 모바일/태블릿용 (전체버전) */}
-          <div className='skill-items-mobile'>
-            {skillMapping([
-              'React',
-              'TypeScript',
-              'Tailwind',
-              'Vite',
-              'Jotai',
-              'TanStack Query',
-              'Axios',
-              'html2Canvas',
-              'jsPDF',
-              'Next.js',
-            ])}
-          </div>
+          <div className='skill-items-mobile'>{skillMapping(frontendSkills)}</div>
         </div>
 
         <div className='skill-category'>
           <h4 className='skill-category-title'>📊 Data</h4>
           {/* 데스크톱용 (축약버전) */}
           <div className='skill-items-desktop'>
-            {skillMapping(['Python', 'NumPy', 'Pandas', 't-SNE'])}
-            <span className='text-xs text-slate-500 self-center ml-2'>외 3개</span>
+            {skillMapping(dataDesktop)}
+            <span className='text-xs text-slate-500 self-center ml-2'>
+              외 {dataRemainingCount}개
+            </span>
           </div>
           {/* 모바일/태블릿용 (전체버전) */}
-          <div className='skill-items-mobile'>
-            {skillMapping([
-              'Python',
-              'NumPy',
-              'Pandas',
-              't-SNE',
-              'Matplotlib',
-              'Seaborn',
-              'Scikit-learn',
-            ])}
-          </div>
+          <div className='skill-items-mobile'>{skillMapping(dataSkills)}</div>
         </div>
 
         <div className='skill-category'>
           <h4 className='skill-category-title'>🛠️ DevOps & Tools</h4>
           {/* 데스크톱용 (축약버전) */}
           <div className='skill-items-desktop'>
-            {skillMapping(['Git', 'GitHub', 'Notion', 'Jira'])}
-            <span className='text-xs text-slate-500 self-center ml-2'>외 3개</span>
+            {skillMapping(devopsToolsDesktop)}
+            <span className='text-xs text-slate-500 self-center ml-2'>
+              외 {devopsToolsRemainingCount}개
+            </span>
           </div>
           {/* 모바일/태블릿용 (전체버전) */}
-          <div className='skill-items-mobile'>
-            {skillMapping(['Git', 'GitHub', 'Notion', 'Jira', 'Gradle', 'Oracle DB', 'QDrant'])}
-          </div>
+          <div className='skill-items-mobile'>{skillMapping(devopsToolsSkills)}</div>
         </div>
       </div>
     </aside>
