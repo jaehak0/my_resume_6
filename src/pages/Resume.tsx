@@ -1,17 +1,14 @@
 import React from 'react';
 import '@styles/resume.css';
-// import { usePDFExport } from '@shared/utils/exportPdf.ts';
-import HeroSection from '@components/sectiions/HeroSection.tsx';
+import HeroSection from '@components/sections/HeroSection.tsx';
 import Sidebar from '@components/Sidebar.tsx';
-import ProjectSection from '@components/sectiions/ProjectSection.tsx';
-import TrobleShootingSection from '@components/sectiions/TroubleShootingSection.tsx';
-import LeadingSection from '@components/sectiions/LeadingSection.tsx';
-import EducationSection from '@components/sectiions/EducationSection.tsx';
-// import JobObjectiveSection from '@components/sectiions/JobObjectiveSection.tsx';
+import ProjectSection from '@components/sections/ProjectSection.tsx';
+import SkillsSection from '@components/sections/SkillsSection.tsx';
+import TrobleShootingSection from '@components/sections/TroubleShootingSection.tsx';
+import LeadingSection from '@components/sections/LeadingSection.tsx';
+import EducationSection from '@components/sections/EducationSection.tsx';
+import ExperienceSection from '@components/sections/ExperienceSection.tsx';
 import Navigation from '@components/Navigation.tsx';
-// import { usePDFExport } from '@shared/utils/selectivePdfFix.ts';
-// import { usePDFExport } from '@shared/utils/exportPdf.ts';
-// import { usePDFExport } from '@shared/utils/browserPrint.ts';
 import { usePDFExport } from '@shared/utils/alternativePdfMethods.ts';
 
 const Resume: React.FC = () => {
@@ -40,8 +37,12 @@ const Resume: React.FC = () => {
             {/*<div className='pdf-only h-[340px] hidden' ></div>*/}
             {/* Main Content */}
             <main className='flex flex-col gap-12'>
+              {/* Experience Section */}
+              <ExperienceSection />
               {/* Projects Section */}
               <ProjectSection />
+              {/* Skills Section */}
+              <SkillsSection />
               {/*// Part 3: 기술적 문제해결 경험 + 팀 리더십 + 현재 진행사항 // TSX에 추가할 부분*/}
               {/* 기술적 문제해결 경험 섹션 */}
               {/*<div className='pdf-only  h-[280px]' />*/}

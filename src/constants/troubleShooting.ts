@@ -1,0 +1,99 @@
+import type { TroubleShootingItem } from '@/types/troubleShooting';
+
+/**
+ * Technical troubleshooting cases
+ */
+export const TROUBLESHOOTING_CASES: TroubleShootingItem[] = [
+  {
+    title: '신용평가 정확도 개선 시스템',
+    subtitle: '자본잠식 기업 A+ 문제 해결을 위한 룰베이스 검증 + Agent 시스템 구축',
+    problem: `<strong>발견된 문제:</strong> 자본잠식 기업임에도 A+ 등급이 나오는 이상사태 발생
+<br />
+<strong>원인:</strong> ML 모델의 정량적 판단만으로는 극단적인 재무상황 감지 한계`,
+    solution: `<strong>구현한 해결 방안:</strong>
+<br />• <strong>룰베이스 검증 로직 (본인 담당):</strong> 자본금 대비 부채비율,
+영업현금흐름 등 핵심 재무지표 기반 1차 검증
+<br />• <strong>LangGraph Agent 기반 2차 검증 (팀장 담당):</strong> GPT-4를 활용한
+정성적 분석으로 룰베이스 한계 보완
+<br />• <strong>이중 검증 파이프라인:</strong> ML 예측 → 룰베이스 검증 → Agent 검증
+3단계 워크플로우
+<br />• <strong>조건부 검증 최적화:</strong> AAA 등급 우대 조건 설정으로 과도한 하향
+조정 방지`,
+    result: `<strong>결과:</strong> 신용평가 시스템의 신뢰성과 정확성을 대폭 향상, 극단적인 오류
+사례 완전 제거`,
+  },
+  {
+    title: 'SSE 실시간 피드백 시스템',
+    subtitle: '사용자 피드백을 위한 Server-Sent Events 기반 실시간 통신 구현',
+    background: `<strong>배경:</strong> 신용평가 및 보고서 생성 과정의 복잡성으로 인한 사용자 대기시간
+문제
+<br />
+<strong>목표:</strong> 사용자 경험 개선 및 시스템 투명성 확보`,
+    problem: '',
+    solution: `<strong>구현 방법:</strong>
+<br />• <strong>백엔드 SSE 엔드포인트:</strong> FastAPI에서 Server-Sent Events 스트림
+구현
+<br />• <strong>프론트엔드 실시간 UI:</strong> React에서 Fetch API +
+ReadableStream으로 SSE 데이터 파싱
+<br />• <strong>단계별 피드백:</strong> 데이터 수집 → 신용평가 → 보고서 생성 각 단계의
+진행률과 상태를 실시간 전달
+<br />• <strong>JSON 구조화:</strong> 구조화된 이벤트 데이터 전송으로 에러 핸들링 및
+연결 상태 관리
+<br />• <strong>사용자 경험 최적화:</strong> 로딩 애니메이션, 진행률 표시, 단계별
+메시지 표시`,
+    result: `<strong>결과:</strong> 사용자 경험 대폭 개선 및 시스템 투명성 확보, 대기시간에 대한
+사용자 불안감 해소`,
+  },
+  {
+    title: '라이브러리 충돌 해결',
+    subtitle: 'LangGraph 설치 후 Pydantic v1/v2 호환성 충돌 문제 해결',
+    problem: `<strong>문제:</strong> LangGraph 설치 후 ForwardRef._evaluate() 에러 발생
+<br />
+<strong>원인:</strong> Pydantic v1/v2 호환성 충돌 및 Python 버전 호환성 문제`,
+    solution: `<strong>해결 과정:</strong>
+<br />
+• 1단계: 전체 의존성 트리 분석으로 충돌 지점 특정
+<br />
+• 2단계: FastAPI 0.115.0 + Pydantic 2.11.7 + LangChain 0.3.25 조합 테스트
+<br />
+• 3단계: 가상환경 재구성 및 requirements.txt 버전 고정
+<br />• 4단계: pip check으로 의존성 무결성 최종 검증`,
+    result: `<strong>결과:</strong> 모든 라이브러리가 안정적으로 동작하며, 팀 전체가 동일한 개발
+환경에서 작업 가능`,
+  },
+  {
+    title: 'Database Failover 시스템',
+    subtitle: 'AWS RDS MySQL과 H2 인메모리 DB 간 자동 전환 시스템',
+    background: `<strong>배경:</strong> AWS RDS MySQL 프리 티어 한계 (월 750시간 제한) 고려
+<br />
+<strong>목표:</strong> 개발 환경 편의성과 비용 효율성 동시 확보`,
+    problem: '',
+    solution: `<strong>구현 방법:</strong>
+<br />
+• 연결 상태 헬스체크 로직 추가
+<br />
+• MySQL 연결 실패 시 자동 H2 전환 메커니즘
+<br />
+• H2 인메모리 DB 백업 시스템 구성
+<br />• 개발 환경 편의성과 비용 효율성 동시 확보`,
+    result: `<strong>결과:</strong> 무중단 개발 환경 구축으로 팀 생산성 향상 및 비용 절감 효과`,
+  },
+  {
+    title: 'PDF 보고서 생성 시 Tailwind CSS 호환성 문제 해결',
+    subtitle: '신용평가 보고서의 PDF 변환 시 최신 CSS 기능 호환성 문제 해결',
+    problem: `<strong>문제:</strong> 신용평가 보고서의 PDF 변환 시 Tailwind CSS v4 색상 시스템과
+html2canvas 충돌
+<br />
+<strong>원인:</strong> Tailwind v4의 oklch() 색상 함수가 html2canvas에서 렌더링되지
+않음`,
+    solution: `<strong>해결 과정:</strong>
+<br />
+• 1단계: Tailwind CSS 색상 팔레트를 HEX 코드로 매핑하는 변환 테이블 작성
+<br />
+• 2단계: PDF 생성 시에만 임시로 스타일 오버라이드 시스템 구현
+<br />
+• 3단계: oklch(), lab(), lch() 등 최신 색상 함수를 안전한 HEX 값으로 강제 변환
+<br />• 4단계: A4 비율 최적화 및 페이지 분할 로직으로 완전한 PDF 생성 시스템 구축`,
+    result: `<strong>결과:</strong> 완벽한 PDF 보고서 생성 기능 완성`,
+  },
+];

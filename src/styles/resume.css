@@ -4,6 +4,58 @@
 
 @tailwind utilities;
 
+/* CSS Variables */
+:root {
+	/* Primary Colors */
+	--color-primary: #6366f1;
+	--color-primary-dark: #4f46e5;
+	--color-primary-light: #818cf8;
+
+	/* Slate Colors */
+	--color-slate-50: #f8fafc;
+	--color-slate-200: #e2e8f0;
+	--color-slate-500: #64748b;
+	--color-slate-600: #475569;
+	--color-slate-800: #1e293b;
+
+	/* Gradient */
+	--gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	--gradient-text: linear-gradient(135deg, white, rgba(255, 255, 255, 0.8));
+	--gradient-primary: linear-gradient(135deg, #6366f1, #4f46e5);
+
+	/* Glassmorphism Effects */
+	--glass-bg-light: rgba(255, 255, 255, 0.1);
+	--glass-bg-medium: rgba(255, 255, 255, 0.2);
+	--glass-border-light: rgba(255, 255, 255, 0.1);
+	--glass-border-medium: rgba(255, 255, 255, 0.2);
+	--glass-border-strong: rgba(255, 255, 255, 0.3);
+	--glass-blur-sm: blur(10px);
+	--glass-blur-md: blur(20px);
+
+	/* Text Box Colors - Rose */
+	--rose-bg: #ffe4e6;
+	--rose-text: #881337;
+	--rose-border: #fecdd3;
+
+	/* Text Box Colors - Amber */
+	--amber-bg: #fef3c7;
+	--amber-bg-solid: #f59e0b;
+	--amber-text: #78350f;
+	--amber-border: #fde68a;
+
+	/* Text Box Colors - Emerald */
+	--emerald-bg: #d1fae5;
+	--emerald-text: #064e3b;
+	--emerald-border: #a7f3d0;
+
+	/* Shadows */
+	--shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+	--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+	--shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+	--shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
 html, body {
 	/*zoom: 90%;*/
 }
@@ -17,7 +69,7 @@ html, body {
 /* Hero 섹션 - 그라데이션과 애니메이션 */
 .hero {
 	@apply min-h-screen flex items-center relative overflow-hidden pt-20;
-	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	background: var(--gradient-hero);
 }
 
 .hero::before {
@@ -48,9 +100,9 @@ html, body {
 
 .hero-badge {
 	@apply inline-block text-white px-4 py-2 rounded-full text-sm font-medium mb-4;
-	background: rgba(255, 255, 255, 0.2);
-	backdrop-filter: blur(10px);
-	border: 1px solid rgba(255, 255, 255, 0.1);
+	background: var(--glass-bg-medium);
+	backdrop-filter: var(--glass-blur-sm);
+	border: 1px solid var(--glass-border-light);
 }
 
 @media (max-width: 1024px) {
@@ -61,7 +113,7 @@ html, body {
 
 .hero-name {
 	@apply text-7xl font-bold mb-4;
-	background: linear-gradient(135deg, white, rgba(255, 255, 255, 0.8));
+	background: var(--gradient-text);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
@@ -69,21 +121,21 @@ html, body {
 
 .hero-card {
 	@apply text-white rounded-3xl p-10;
-	background: rgba(255, 255, 255, 0.1);
-	backdrop-filter: blur(20px);
-	border: 1px solid rgba(255, 255, 255, 0.2);
+	background: var(--glass-bg-light);
+	backdrop-filter: var(--glass-blur-md);
+	border: 1px solid var(--glass-border-medium);
 }
 
 .card-avatar {
 	@apply w-24 h-24 rounded-full flex items-center justify-center text-4xl mx-auto mb-4;
-	background: rgba(255, 255, 255, 0.2);
-	border: 3px solid rgba(255, 255, 255, 0.3);
+	background: var(--glass-bg-medium);
+	border: 3px solid var(--glass-border-strong);
 }
 
 .stat-box {
 	@apply p-4 rounded-xl text-center;
-	background: rgba(255, 255, 255, 0.1);
-	border: 1px solid rgba(255, 255, 255, 0.1);
+	background: var(--glass-bg-light);
+	border: 1px solid var(--glass-border-light);
 }
 
 .stat-number {
@@ -101,12 +153,12 @@ html, body {
 
 .btn-outline {
 	@apply bg-transparent text-white border-2 px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2;
-	border-color: rgba(255, 255, 255, 0.3);
-	backdrop-filter: blur(10px);
+	border-color: var(--glass-border-strong);
+	backdrop-filter: var(--glass-blur-sm);
 }
 
 .btn-outline:hover {
-	background: rgba(255, 255, 255, 0.1);
+	background: var(--glass-bg-light);
 	border-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -141,6 +193,9 @@ html, body {
 
 .contact-item {
 	@apply flex items-center gap-3 p-3 bg-slate-50 rounded-lg text-slate-800 hover:bg-indigo-600 hover:text-white hover:translate-x-1 transition-all;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .skill-category {
@@ -292,7 +347,7 @@ html, body {
 
 /* 그라데이션 텍스트 */
 .gradient-text {
-	background: linear-gradient(135deg, #6366f1, #4f46e5);
+	background: var(--gradient-primary);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
@@ -351,8 +406,8 @@ html, body {
 /* 카드 아바타 스타일 조정 */
 .card-avatar-icon {
 	@apply w-24 h-24 rounded-full flex items-center justify-center text-4xl mx-auto mb-4;
-	background: rgba(255, 255, 255, 0.2);
-	border: 3px solid rgba(255, 255, 255, 0.3);
+	background: var(--glass-bg-medium);
+	border: 3px solid var(--glass-border-strong);
 }
 
 /* Resume.css에 추가 */
@@ -542,25 +597,37 @@ img.loaded {
 	display: none !important;
 }
 
-.rose-text-box-soft{
-	@apply bg-rose-100 text-rose-900 border border-rose-300 rounded-xl text-sm leading-relaxed;
+/* Text Box Styles - Using CSS Variables */
+.rose-text-box-soft {
+	@apply rounded-xl text-sm leading-relaxed;
+	background-color: var(--rose-bg);
+	color: var(--rose-text);
+	border: 1px solid var(--rose-border);
 }
 
-.amber-text-box{
-	@apply bg-amber-500 text-white rounded-xl text-sm leading-relaxed;
-}
-.amber-text-box-soft{
-	@apply bg-amber-100 text-amber-900 border border-amber-300 rounded-xl text-sm leading-relaxed;
+.amber-text-box {
+	@apply rounded-xl text-sm leading-relaxed text-white;
+	background-color: var(--amber-bg-solid);
 }
 
-.blue-text-box{
+.amber-text-box-soft {
+	@apply rounded-xl text-sm leading-relaxed;
+	background-color: var(--amber-bg);
+	color: var(--amber-text);
+	border: 1px solid var(--amber-border);
+}
+
+.blue-text-box {
 	@apply bg-blue-500 text-white rounded-xl text-sm leading-relaxed;
 }
 
-.green-text-box{
+.green-text-box {
 	@apply bg-green-500 text-white rounded-xl text-sm leading-relaxed;
 }
 
-.emerald-text-box-soft{
-	@apply bg-emerald-100 text-emerald-900 border border-emerald-300 rounded-xl text-sm leading-relaxed;
+.emerald-text-box-soft {
+	@apply rounded-xl text-sm leading-relaxed;
+	background-color: var(--emerald-bg);
+	color: var(--emerald-text);
+	border: 1px solid var(--emerald-border);
 }

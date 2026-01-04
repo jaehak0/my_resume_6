@@ -1,13 +1,8 @@
 import React from 'react';
 import ProfileImage from '@assets/profile-image.jpg';
+import { scrollToElement } from '@shared/utils/scrollUtils';
 
 const HeroSection: React.FC = () => {
-  const handleScrollTo = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <section className='hero force-page-break'>
@@ -43,7 +38,7 @@ const HeroSection: React.FC = () => {
           </p>
 
           <div className='flex gap-4 flex-wrap justify-center lg:justify-start'>
-            <button onClick={() => handleScrollTo('contact')} className='btn-primary'>
+            <button onClick={() => scrollToElement('contact')} className='btn-primary'>
               📧 연락하기
             </button>
             <a href='https://github.com/jaehak0' className='btn-outline'>
