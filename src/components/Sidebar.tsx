@@ -25,7 +25,7 @@ const Sidebar: React.FC = () => {
           {CONTACT_INFO.map((contact: ContactInfo, index: number) =>
             contact.link ? (
               <a key={index} href={contact.link} className='contact-item'>
-                {contact.text} {contact.pdfText && <span className='pdf-only'>{contact.pdfText}</span>}
+                {contact.icon} {contact.text} {contact.pdfText && <span className='pdf-only'>{contact.pdfText}</span>}
               </a>
             ) : (
               <div key={index} className='contact-item'>

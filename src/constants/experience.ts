@@ -2,8 +2,8 @@ import type { Experience } from '@/types/experience';
 
 export const CAREER_EXPERIENCE: Experience[] = [
   {
-    company: '새움소프트 (Saeum Software)',
-    role: 'Frontend Developer Intern',
+    company: '새움소프트 (SaeumSoft)',
+    role: 'Developer Intern',
     period: '2024.08 - 2024.11',
     type: '인턴',
     description: 'Vue 3 기반 2D 평면도 에디터 및 AI 테스트 플랫폼 개발',
@@ -38,7 +38,7 @@ export const CAREER_EXPERIENCE: Experience[] = [
           'WebSocket으로 실시간 동영상 생성 진행률 스트리밍',
           'Google Gemini 2.5 Flash, Veo 3.1 API 통합',
           'Vue 3 프론트엔드 UI 개발',
-          '2-3일 만에 DB-백엔드-프론트엔드 전체 Solo 개발 완료'
+          '2일 만에 DB-백엔드-프론트엔드 전체 Solo 개발 완료'
         ],
         techStack: [
           'Python 3.13',
@@ -49,7 +49,7 @@ export const CAREER_EXPERIENCE: Experience[] = [
           'Google Veo 3.1',
           'Vue 3'
         ],
-        badge: '2-3일 Solo 개발'
+        badge: '2일 Solo 개발'
       }
     ],
     techStack: [
