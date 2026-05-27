@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 import type { TroubleShootingItem } from '@/types/troubleShooting';
 import { TROUBLESHOOTING_CASES } from '@/constants/troubleShooting';
 import SectionHeader from '@components/common/SectionHeader';
@@ -27,22 +28,22 @@ const TroubleShooting: React.FC = () => {
           >
             {item.background && (
               <ColoredTextBox variant='amber' className='mb-4'>
-                <div dangerouslySetInnerHTML={{ __html: item.background }} />
+                <div>{parse(item.background)}</div>
               </ColoredTextBox>
             )}
 
             {item.problem && (
               <ColoredTextBox variant='rose' className='mb-4'>
-                <div dangerouslySetInnerHTML={{ __html: item.problem }} />
+                <div>{parse(item.problem)}</div>
               </ColoredTextBox>
             )}
 
             <div className='project-details'>
-              <div dangerouslySetInnerHTML={{ __html: item.solution }} />
+              <div>{parse(item.solution)}</div>
             </div>
 
             <ColoredTextBox variant='emerald'>
-              <div dangerouslySetInnerHTML={{ __html: item.result }} />
+              <div>{parse(item.result)}</div>
             </ColoredTextBox>
           </ProjectCard>
         ))}

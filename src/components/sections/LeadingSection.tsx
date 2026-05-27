@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 import type { LeadershipItem } from '@/types/leadership';
 import { LEADERSHIP_EXPERIENCES } from '@/constants/leadership';
 import SectionHeader from '@components/common/SectionHeader';
@@ -26,11 +27,11 @@ const LeadingSection: React.FC = () => {
             }
           >
             <div className='project-details'>
-              <div dangerouslySetInnerHTML={{ __html: item.details }} />
+              <div>{parse(item.details)}</div>
             </div>
 
             <ColoredTextBox variant='emerald' className='text-white rounded-lg text-sm'>
-              <div dangerouslySetInnerHTML={{ __html: item.result }} />
+              <div>{parse(item.result)}</div>
             </ColoredTextBox>
           </ProjectCard>
         ))}

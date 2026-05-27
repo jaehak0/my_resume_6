@@ -5,7 +5,10 @@
       "Bash(tree:*)",
       "Bash(npm run build:*)",
       "Bash(npm run dev:*)",
-      "Bash(npx eslint:*)"
+      "Bash(npx eslint:*)",
+      "Bash(pnpm add *)",
+      "Bash(pnpm *)",
+      "PowerShell(pnpm *)"
     ]
   }
 }

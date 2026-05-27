@@ -51,7 +51,7 @@ const ExperienceSection: React.FC = () => {
                       <h4 className='text-xl font-bold text-indigo-600 mb-2'>
                         {project.title}
                       </h4>
-                      <p className='text-slate-600 mb-4'>{project.description}</p>
+                      <p className='text-slate-600'>{project.description}</p>
                     </>
                   }
                 >

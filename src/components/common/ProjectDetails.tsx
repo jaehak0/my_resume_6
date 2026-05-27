@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 import type { ProjectDetail } from '@/types/project';
 
 interface ProjectDetailsProps {
@@ -14,7 +15,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ details }) => {
           <br />
           {detail.items.map((item, itemIndex) => (
             <React.Fragment key={itemIndex}>
-              • {item}
+              • {parse(item)}
               {itemIndex < detail.items.length - 1 && <br />}
             </React.Fragment>
           ))}
